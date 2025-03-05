@@ -297,19 +297,6 @@ nav{
   justify-content: center;
   align-items: center;
   width: 100px;
-  grid-column: 1;
-  grid-row: 1 / 2;
-}
-.featureImg img{
-  max-height: 80px;
-}
-.random h2{
-  grid-column: 2;
-  grid-row: 1;
-}
-.random p{
-  grid-column: 2;
-  grid-row: 2;
 }
 #featuresRight {  
   padding-right: 60px;
@@ -408,5 +395,32 @@ td{
     color: rgba(130, 130, 130, 1);
     float: left;
     padding-left: 20px;
+  }
+}
+
+
+#advantages{
+  padding: 0px 120px;
+  text-align: center;
+}
+#advantagesFive{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 112px; 
+  row-gap: 45px;
+}
+.advantageChild{
+  max-width: 325px;
+}
+.advantageChild h2{
+  margin-top: 12px;
+}
+.advantageChild p{
+  margin-top: 8px;
+}
+@media (width <= 1000px) {
+  #advantages{
+    padding: 0px 30px;
   }
 }
