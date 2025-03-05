@@ -21,7 +21,6 @@ h1{
   font-size: 46px;
   font-weight: 600;
   line-height: 62.64px;
-  margin-bottom: 20px;
 }
 h2{
   font-size: 32px;
@@ -75,6 +74,9 @@ header{
 .grayText{
   color:rgba(51, 51, 51, 1);
 }
+.lightGrayText{
+  color:rgba(130, 130, 130, 1);
+}
 @media (width <= 850px) {
   #hContainer{
     flex-direction: column;
@@ -94,7 +96,7 @@ header{
 }
 
 
-nav,#heroTwo,#hContainer, #features{
+nav,#heroTwo,#hContainer, #features, #products{
   max-width: 1440px;
   margin: auto;
 }
@@ -342,5 +344,69 @@ nav{
   }
   #featuresRight img{
     width: 100%;
+  }
+}
+
+
+#products{
+  display: flex;
+  margin: auto;
+  padding: 0 120px;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+table{
+    border-collapse: collapse;
+    border-style: hidden;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px rgba(47, 128, 237, 0.3);
+}
+tr{
+  border: 1px solid rgba(47, 128, 237, 0.3);
+}
+th{
+  padding: 12px 0px;
+  font-weight:400;
+}
+td{
+  padding: 15px 0px;
+}
+.btnFYellow{
+  color: white;
+  background-color:rgba(255, 189, 0, 1);
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 10px 30px;
+  border: none;
+}
+@media (width <= 1000px) {
+  #products{
+    padding: 0px 30px;
+  }
+  thead {
+    clip: rect(0 0 0 0);
+    position: absolute;
+    border: none;
+  }
+  table{
+    box-shadow: none;
+  }
+  tr {
+    display: block;
+    margin-bottom: 50px;
+  }
+  td {
+    border: none;
+    border: 1px solid rgba(47, 128, 237, 0.3);
+    display: block;
+  }
+  /*column names in mini tables*/
+  table td::before {
+    content: attr(data-label);
+    color: rgba(130, 130, 130, 1);
+    float: left;
+    padding-left: 20px;
   }
 }
