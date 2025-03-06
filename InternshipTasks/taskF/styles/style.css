@@ -5,6 +5,8 @@
 
 :root {
   --blue: rgba(47, 128, 237, 1);
+  --darkGray: rgba(221, 221, 221, 1);
+  --lightGray:rgba(130, 130, 130, 1);
 }
 
 *{
@@ -14,7 +16,7 @@ body{
   font-family: 'Open Sans';
   font-weight: 400;
 }
-p{
+p, blockquote{
   font-size: 16px;
 }
 h1{
@@ -26,12 +28,22 @@ h2{
   font-size: 32px;
   font-weight: 400;
 }
+h3{
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+cite{
+  font-style: normal;
+  font-size: 22px;
+  font-weight: 400;
+}
 a{
   font-size: 18px;
   text-decoration: none;
   color: black;
-  font-weight: 800;
 }
+
 hr{
   width: 600px;
   margin: 80px auto;
@@ -46,12 +58,9 @@ hr{
 header{
   margin: auto;
   background-color: rgba(47, 128, 237, 0.1);
-  display: flex;
   width: 100%;
-  justify-content: center;
 }
 #hContainer{
-  width: 1440px;
   padding: 12px 120px;
   display: flex;
   flex-direction: row;
@@ -74,9 +83,6 @@ header{
 .grayText{
   color:rgba(51, 51, 51, 1);
 }
-.lightGrayText{
-  color:rgba(130, 130, 130, 1);
-}
 @media (width <= 850px) {
   #hContainer{
     flex-direction: column;
@@ -96,8 +102,8 @@ header{
 }
 
 
-nav,#heroTwo,#hContainer, #features, #products{
-  max-width: 1440px;
+nav,#heroTwo,#hContainer, #features, #products, #advantages, #blog, #testimonials, #fContainer{
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -130,7 +136,7 @@ nav{
 #hrVertical{
   width: 45px;
   transform:rotate(90deg);
-  background-color: rgba(221, 221, 221, 1);
+  background-color: var(--darkGray);
   margin: 0px 27.5px;
 }
 @media (width <= 1200px) {
@@ -233,14 +239,17 @@ nav{
     margin: 20px auto;
   }
 }
+
 .btnFBlue{
-  color: white;
+  color: white ;
   background-color:var(--blue);
   border-radius: 5px;
+  font-weight: 600;
   font-size: 24px;
   padding: 14px 44px;
   border: none;
 }
+
 #heroBtnIcons{
   margin: 40px 0px;
   display: flex; /*= align-items:center*/
@@ -350,14 +359,15 @@ table{
     box-shadow: 0 0 0 1px rgba(47, 128, 237, 0.3);
 }
 tr{
-  border: 1px solid rgba(47, 128, 237, 0.3);
+  border:1pt solid rgba(47, 128, 237, 0.3);
 }
 th{
   padding: 12px 0px;
   font-weight:400;
+  color: var(--lightGray);
 }
 td{
-  padding: 15px 0px;
+  padding: 15px 50px;
 }
 .btnFYellow{
   color: white;
@@ -392,7 +402,7 @@ td{
   /*column names in mini tables*/
   table td::before {
     content: attr(data-label);
-    color: rgba(130, 130, 130, 1);
+    color: var(--lightGray);
     float: left;
     padding-left: 20px;
   }
@@ -411,16 +421,179 @@ td{
   row-gap: 45px;
 }
 .advantageChild{
+  flex-basis: 30%;
   max-width: 325px;
 }
-.advantageChild h2{
+.advantageChild > h2{
   margin-top: 12px;
 }
-.advantageChild p{
+.advantageChild > p{
   margin-top: 8px;
 }
 @media (width <= 1000px) {
   #advantages{
     padding: 0px 30px;
   }
+}
+
+
+#testimonials{
+  padding: 0px 120px;
+  text-align: center;
+}
+#wrapper{
+  display: flex;
+  align-items: center;
+  gap:20px;
+}
+#testimonialsCardSlider{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: 27px;
+}
+figure{
+  min-height: 130px;
+  padding: 30px 20px 15px;
+  width: 240px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 8px rgba(224, 224, 224, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+}
+cite{
+  margin-top: 10px;
+}
+figure blockquote{
+  margin-top: 8px;
+}
+
+
+#blog{
+  padding: 0px 120px 80px;
+  text-align: center;
+}
+#blogArticles{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 27px;
+  flex-wrap: wrap;
+}
+article{
+  text-align: left;
+  min-height: 360px;
+  width: 280px;
+}
+article > img{
+  border-radius: 5px;
+  max-height: 180px;
+  max-width: 280px;
+}
+article > h2{
+  margin: 20px 0px 12px;
+}
+article > p{
+  margin-bottom: 12px;
+}
+.readMore{
+  color: var(--blue);
+  font-weight: 600;
+}
+
+
+footer{
+  background-color: rgba(242, 242, 242, 1);
+  margin: auto; /*make it into one (lots of repeating)*/
+  width: 100%;
+}
+#fContainer{
+  padding: 60px 120px;
+}
+#footerPagesEmail{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+  gap: 60px;
+}
+#footerPagesEmail ul{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 0px;
+}
+footer li > a {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--lightGray);
+}
+footer p {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--lightGray);
+  margin-top: 10px;
+}
+#subscribeBox{
+  max-width: 360px;
+}
+#emailBox{
+  margin-top: 16px;
+  max-width: 360px;
+  display: flex;
+}
+footer input{
+  width: 100%;
+  border: none;
+  font-size: 18px;
+  padding: 10px 0px 10px 12px;
+  border-radius: 5px 0px 0px 5px;
+}
+footer input::placeholder{
+  color: rgba(189, 189, 189, 1);
+  font-size: 18px;
+  font-weight: 400;
+}
+footer button{
+  color: white ;
+  background-color:var(--blue);
+  font-weight: normal;
+  border: none;
+  border-radius: 0px 5px 5px 0px;
+  font-size: 18px;
+  padding: 10px 30px ;
+}
+#footerPaymentsApps{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 80px;
+  justify-content: space-between;
+  align-items: center;
+}
+#footerPaymentsApps div{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+#companies{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 40px;
+  align-items: center;
+}
+footer hr{
+  width: 100% !important;
+  margin: 30px auto !important;
+  border-radius: 1px !important;
+  opacity: 100% !important;
+  background-color: var(--darkGray) !important;
 }
