@@ -1,12 +1,11 @@
-/*
-1920/1080+
-375/812
-*/
-
 :root {
-  --blue: rgba(47, 128, 237, 1);
-  --darkGray: rgba(221, 221, 221, 1);
-  --lightGray:rgba(130, 130, 130, 1);
+  --white: #ffffff;
+  --blue: #2F80ED;
+  --hrGray: #DDDDDD;
+  --lightGray: #828282;
+  --blueTableBorders: rgba(47, 128, 237, 0.3);
+  --blackLight: #333333; 
+  --blackDark: #050F19;
 }
 
 *{
@@ -15,64 +14,79 @@
 body{
   font-family: 'Open Sans';
   font-weight: 400;
-}
-p, blockquote{
   font-size: 16px;
+  color: var(--blackLight);
+}
+img{
+  user-select: none;
 }
 h1{
   font-size: 46px;
   font-weight: 600;
-  line-height: 62.64px;
+  color: var(--blackDark);
 }
 h2{
   font-size: 32px;
   font-weight: 400;
+  color: var(--blackDark);
 }
 h3{
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 16px;
+  color: var(--blackDark);
 }
 cite{
   font-style: normal;
   font-size: 22px;
-  font-weight: 400;
 }
 a{
-  font-size: 18px;
   text-decoration: none;
-  color: black;
 }
-
 hr{
   width: 600px;
   margin: 80px auto;
   height: 1px;
   border-radius: 5px;
   border: none;
-  opacity: 30%;
+  opacity: 0.3;
   background-color: var(--blue);
 }
 
+nav,#heroTwo, #hContainer, #features, #products, #advantages, #blog, #fContainer{
+  max-width: 1200px;
+  margin: auto;
+}
+nav,#heroTwo, #features, #products, #advantages, #blog{
+  padding: 0 120px;
+}
+#ADV, #products, #advantages, #testimonials, #blog{
+  text-align: center;
+}
 
 header{
+  width: 100%;
   margin: auto;
   background-color: rgba(47, 128, 237, 0.1);
-  width: 100%;
 }
 #hContainer{
-  padding: 12px 120px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  font-weight: 400;
+  padding: 12px 120px;
 }
 #hStocks{
   display: flex;
   flex-direction: row;
   font-weight: 600;
   gap: 25px;
+}
+#hStocks div{
+  display: flex; 
+  gap: 10px;
+}
+.arrowUp{
+  margin-top: -2px;
 }
 .redText{
   color: rgba(160, 19, 19, 1);
@@ -83,13 +97,7 @@ header{
 .grayText{
   color:rgba(51, 51, 51, 1);
 }
-@media (width <= 850px) {
-  #hContainer{
-    flex-direction: column;
-    padding: 12px 20px;
-  }
-}
-@media (width <= 1350px) {
+@media (max-width: 1360px) {
   #hContainer{
     align-items: baseline;
     gap: 10px;
@@ -100,18 +108,24 @@ header{
     gap: 10px;
   }
 }
-
-
-nav,#heroTwo,#hContainer, #features, #products, #advantages, #blog, #testimonials, #fContainer{
-  max-width: 1200px;
-  margin: auto;
+@media (max-width: 850px) {
+  #hContainer{
+    flex-direction: column;
+    padding: 12px 20px;
+  }
+}
+@media (max-width: 480px) {
+  #hContainer{
+    padding: 12px 30px;
+  }
+  #hStocks div{
+    width: 100%;
+    text-align: left;
+    gap: 0;
+  }
 }
 
 
-nav{
-  margin: auto;
-  padding: 0 120px;
-}
 #nContainer{
   display: flex;
   flex-direction: row;
@@ -119,16 +133,21 @@ nav{
   align-items: center;
   padding: 20px 0;
 }
+nav a {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--blackDark);
+}
 #nMenu{
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-#nMenu1{
+#nMenuPages{
   display: flex;
   gap: 40px;
 }
-#nMenu2{
+#nMenuUser{
   display: flex;
   align-items: center;
   gap: 40px;
@@ -136,13 +155,13 @@ nav{
 #hrVertical{
   width: 45px;
   transform:rotate(90deg);
-  background-color: var(--darkGray);
-  margin: 0px 27.5px;
+  background-color: var(--hrGray);
+  margin: 0 27.5px;
 }
-@media (width <= 1200px) {
+@media (max-width: 1200px) {
   nav{
     margin: auto;
-    padding: 0 0px;
+    padding: 0 0;
   }
   #nContainer{
     flex-direction: column;
@@ -157,11 +176,11 @@ nav{
     align-items: center;
     gap: 10px;
   }
-  #nMenu1{
+  #nMenuPages{
     gap: 20px;
     flex-wrap: wrap;
   }
-  #nMenu2{
+  #nMenuUser{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -173,24 +192,21 @@ nav{
 }
 
 
-#adv{
-  background-color: var(--blue);
-  color: white;
+#ADV{
+  color: var(--white);
   font-weight: 700;
-  text-align: center;
   padding: 12px 20px;
+  background-color: var(--blue);
 }
 #heroTwo{
   display: flex;
   flex-direction: row;
-  align-items: center;
-  margin: auto;  
-  padding: 15px 120px 0px;
+  align-items: center; 
+  margin-top: 15px;
 }
 #heroLeft{
   width: 50%;
   padding-right: 116px;
-
 }
 #heroRight{
   align-content: center;
@@ -198,50 +214,45 @@ nav{
   width: 50%;
   padding-right: 60px;
 }
-@media (width <= 1200px) {
-  #heroTwo{
-    padding: 30px 60px 0px;
-  }
+@media (max-width: 1200px) {
   #heroLeft{
     padding-right: 60px;
   }
-}
-@media (width <= 1000px) {
-  #heroTwo{
-    padding: 30px 30px 0px;
+  #heroRight img{
+    width: 100%;
   }
+}
+@media (max-width: 1000px) {
   #heroLeft{
-    padding-right: 30px;
+    padding-right: 0 30px;
   }
   #heroRight img{
     width: 90%;
   }
 }
-@media (width <= 800px) {
+@media (max-width: 800px) {
   #heroTwo {
-    padding: 30px 30px 0px;
+    padding: 30px 0;
     flex-direction: column;
   }
   #heroLeft{
-    padding-right: 0px;
+    padding-right: 0;
     width: 100%;
   }
   #heroRight{
     margin-top: 20px;
     width: 100%;
-    padding-right: 0px;
+    padding-right: 0;
   }
   #heroRight img{
     width: 100%;
   }
   hr{
     width: 50%;
-    margin: 20px auto;
   }
 }
-
-.btnFBlue{
-  color: white ;
+.btnFillBlue{
+  color: var(--white);
   background-color:var(--blue);
   border-radius: 5px;
   font-weight: 600;
@@ -249,38 +260,43 @@ nav{
   padding: 14px 44px;
   border: none;
 }
-
 #heroBtnIcons{
-  margin: 40px 0px;
+  margin: 40px 0;
   display: flex; /*= align-items:center*/
+  flex-wrap: wrap;
+  gap: 30px;
 }
-#heroBtnIcons *{
- margin-right: 20px;
+#heroIcons{
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 .inline{
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.btnNFBlue{
+.btnNotFillBlue{
   color: var(--blue);
   background-color:white;
+  font-weight: 600;
   border-radius: 5px;
   font-size: 18px;
   padding: 10px 30px;
   border: 1px solid var(--blue);
+  margin-right: 10px;
 }
-@media (width <= 400px) {
+@media (max-width: 400px) {
   .inline{
     flex-direction: column;
+  }
+  #heroBtnIcons{
+    row-gap: 20px;
   }
 }
 
 
-#features{
-  padding: 0px 120px;
-}
-#featuresTop{
+#features > :first-child{
   text-align: center;
 }
 #featuresTwo{
@@ -291,9 +307,9 @@ nav{
 #featuresLeft{ 
   grid-column: 1;
   grid-row: 1;
-  display: flex;
+  display: grid;
   flex-direction: column;
-  gap: 30px;
+  gap: 35px;
 }
 #featuresLeft .featureChild {
   display: grid;
@@ -315,13 +331,11 @@ nav{
   display: flex;
   align-items: center;
 }
-@media (width <= 1200px) {
-  #features{
-    padding: 0px 30px;
-  }
+@media (max-width: 1200px) {
   #featuresTwo {
     grid-template-columns: 1fr; 
     grid-template-rows: 1fr auto; 
+    gap: 20px;
   }
   #featuresLeft{
     margin: auto;
@@ -332,7 +346,7 @@ nav{
     grid-template-columns: auto 1fr; 
   }
   #featuresRight{
-    padding: 0px;
+    padding: 0;
     margin: auto;
     grid-column: 1;
     grid-row: 2;
@@ -346,30 +360,27 @@ nav{
 
 #products{
   display: flex;
-  margin: auto;
-  padding: 0 120px;
   justify-content: center;
   flex-direction: column;
-  text-align: center;
 }
 table{
     border-collapse: collapse;
     border-style: hidden;
     border-radius: 5px;
-    box-shadow: 0 0 0 1px rgba(47, 128, 237, 0.3);
+    box-shadow: 0 0 0 1px var(--blueTableBorders);
 }
 tr{
-  border:1pt solid rgba(47, 128, 237, 0.3);
+  border:1pt solid var(--blueTableBorders);
 }
 th{
-  padding: 12px 0px;
+  padding: 12px 0;
   font-weight:400;
   color: var(--lightGray);
 }
 td{
   padding: 15px 50px;
 }
-.btnFYellow{
+.btnFillYellow{
   color: white;
   background-color:rgba(255, 189, 0, 1);
   border-radius: 5px;
@@ -378,10 +389,12 @@ td{
   padding: 10px 30px;
   border: none;
 }
-@media (width <= 1000px) {
-  #products{
-    padding: 0px 30px;
+@media (max-width: 1300px) {
+  td{
+    padding: 15px 20px;
   }
+}
+@media (max-width: 1000px) {
   thead {
     clip: rect(0 0 0 0);
     position: absolute;
@@ -396,7 +409,7 @@ td{
   }
   td {
     border: none;
-    border: 1px solid rgba(47, 128, 237, 0.3);
+    border: 1px solid var(--blueTableBorders);
     display: block;
   }
   /*column names in mini tables*/
@@ -407,12 +420,13 @@ td{
     padding-left: 20px;
   }
 }
-
-
-#advantages{
-  padding: 0px 120px;
-  text-align: center;
+@media (max-width: 500px) {
+  td{
+    padding: 15px 0;
+  }
 }
+
+
 #advantagesFive{
   display: flex;
   justify-content: center;
@@ -421,7 +435,6 @@ td{
   row-gap: 45px;
 }
 .advantageChild{
-  flex-basis: 30%;
   max-width: 325px;
 }
 .advantageChild > h2{
@@ -430,36 +443,42 @@ td{
 .advantageChild > p{
   margin-top: 8px;
 }
-@media (width <= 1000px) {
-  #advantages{
-    padding: 0px 30px;
+@media (max-width: 1000px) {
+  #advantagesFive{
+    gap: 20px; 
   }
 }
 
 
 #testimonials{
-  padding: 0px 120px;
-  text-align: center;
+  max-width: 1284px;
+  margin: auto;
+  padding: 0 78px;
 }
 #wrapper{
   display: flex;
   align-items: center;
-  gap:20px;
-}
-#testimonialsCardSlider{
-  display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  flex-direction: row;
-  align-items: center;
-  gap: 27px;
+  gap: 10px;
+}
+#slider{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 25%;
+  gap: 2px;
+  padding: 5px;
+  overflow-x: auto; 
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 figure{
+  place-self: center;
   min-height: 130px;
   padding: 30px 20px 15px;
   width: 240px;
   border-radius: 5px;
-  box-shadow: 0px 0px 5px 8px rgba(224, 224, 224, 0.2);
+  box-shadow: 0 0 5px 8px rgba(224, 224, 224, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: baseline;
@@ -471,17 +490,39 @@ cite{
 figure blockquote{
   margin-top: 8px;
 }
+@media (max-width: 1400px){
+  #slider {
+    grid-auto-columns: 33%;
+    gap:20px;
+  }
+}
+@media (max-width: 1100px){
+  #slider {
+    grid-auto-columns: 50%;
+    gap:0;
+  }
+}
+@media (max-width: 750px){
+  #slider {
+    grid-auto-columns: 100%;
+  }
+}
+@media (max-width: 450px){
+  #slider {
+    gap: 50px;
+  }
+ 
+}
 
 
 #blog{
-  padding: 0px 120px 80px;
-  text-align: center;
+  margin-bottom: 80px;
 }
 #blogArticles{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 27px;
+  gap: 25px;
   flex-wrap: wrap;
 }
 article{
@@ -495,7 +536,7 @@ article > img{
   max-width: 280px;
 }
 article > h2{
-  margin: 20px 0px 12px;
+  margin: 20px 0 12px;
 }
 article > p{
   margin-bottom: 12px;
@@ -508,8 +549,6 @@ article > p{
 
 footer{
   background-color: rgba(242, 242, 242, 1);
-  margin: auto; /*make it into one (lots of repeating)*/
-  width: 100%;
 }
 #fContainer{
   padding: 60px 120px;
@@ -526,7 +565,7 @@ footer{
   flex-direction: column;
   gap: 10px;
   list-style: none;
-  padding: 0px;
+  padding: 0;
 }
 footer li > a {
   font-size: 16px;
@@ -534,7 +573,6 @@ footer li > a {
   color: var(--lightGray);
 }
 footer p {
-  font-size: 16px;
   font-weight: 600;
   color: var(--lightGray);
   margin-top: 10px;
@@ -551,8 +589,8 @@ footer input{
   width: 100%;
   border: none;
   font-size: 18px;
-  padding: 10px 0px 10px 12px;
-  border-radius: 5px 0px 0px 5px;
+  padding: 10px 0 10px 12px;
+  border-radius: 5px 0 0 5px;
 }
 footer input::placeholder{
   color: rgba(189, 189, 189, 1);
@@ -562,9 +600,9 @@ footer input::placeholder{
 footer button{
   color: white ;
   background-color:var(--blue);
-  font-weight: normal;
+  font-weight: 600;
   border: none;
-  border-radius: 0px 5px 5px 0px;
+  border-radius: 0 5px 5px 0;
   font-size: 18px;
   padding: 10px 30px ;
 }
@@ -595,5 +633,25 @@ footer hr{
   margin: 30px auto !important;
   border-radius: 1px !important;
   opacity: 100% !important;
-  background-color: var(--darkGray) !important;
+  background-color: var(--hrGray) !important;
+}
+@media (max-width: 1000px) {
+  #footerPagesEmail div{
+    min-width: 170px;
+  }
+  #footerPaymentsApps{
+    gap: 20px;
+  }
+  #heroTwo{
+    padding: 0 30px;
+  }
+  #features, #products, #advantages, #testimonials{
+    padding: 0 30px;
+  }
+  #blog{
+    padding: 0 30px 0;
+  }
+  #fContainer{
+    padding: 60px 30px;
+  }
 }

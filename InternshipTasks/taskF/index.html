@@ -13,34 +13,46 @@
         <div id="hContainer">
             <p class="grayText">Live Spot Prices:</p>
             <div id="hStocks">
-                <p>Gold Ask: $1,789.81 <span class="redText">$-8.89 ↓</span></p>
-                <p>Silver Ask: $26.89 <span class="redText">$ -0.08 ↓</span></p>
-                <p>Platinum Ask: $1,248.10 <span class="greenText">$8.19 ↑</span></p>
-                <p>Palladium Ask: $3,035.82 <span class="greenText">$34.03 ↑</span></p>
+                <div>
+                    <p>Gold Ask: $1,789.81 <span class="redText">$ -8.89</span></p>
+                    <p class="redText arrowUp">&#8595;</p>
+                </div>
+                <div>
+                    <p>Silver Ask: $26.89 <span class="redText">$ -0.08</span></p>
+                    <p class="redText arrowUp">&#8595;</p>
+                </div>
+                <div>
+                    <p>Platinum Ask: $1,248.10 <span class="greenText">$8.19</span></p>
+                    <p class="greenText arrowUp">&#8593;</p>
+                </div>
+                <div>
+                    <p>Palladium Ask: $3,035.82 <span class="greenText">$34.03</span></p>
+                    <p class="greenText arrowUp">&#8593;</p>
+                </div>
             </div>
         </div>
     </header>  
     <nav>
         <div id="nContainer">
-            <img src="public/goldX.svg" alt="GoldX logo">
+            <a href="#"><img src="public/goldX.svg" alt="GoldX logo"></a>
             <div id="nMenu">
-                <div id="nMenu1">
+                <div id="nMenuPages">
                     <a href="#">How it Works</a>
                     <a href="#">Pricing</a>
                     <a href="#">Contatct</a>
                     <a href="#">Other</a>    
                 </div>
                 <hr id="hrVertical">
-                <div id="nMenu2">
+                <div id="nMenuUser">
                     <a href="#">Log in</a>
-                    <a href="#" class="btnNFBlue">Register</a>
+                    <a href="#" class="btnNotFillBlue">Register</a>
                 </div>
             </div>
         </div>
     </nav>
     <main>
         <section id="hero">
-            <div id="adv">
+            <div id="ADV">
                 <p>PREMIUM REDUCTION: Buy gold at 0.80% over spot and 2% for silver. Save over 80% compared to physical premiums</p>
             </div>
             <div id="heroTwo">
@@ -48,15 +60,17 @@
                     <h1 style="margin-bottom: 20px;">Precious Metals<br>Go Digital</h1>
                     <p>GoldX allows individual investment into securely stored gold and silver at the lowest possible cost. Your free account allows you to trade precious metals 24/7, and through our partnership with JM Bullion, redeem physical precious metals at any time.</p>
                     <div id="heroBtnIcons">
-                        <a href="#" class="btnFBlue">Get Started</a>
-                        <img src="public/appleIcon.svg" alt="Apple icon">
-                        <img src="public/androidIcon.svg" alt="Android icon">
+                        <a href="#" class="btnFillBlue">Get Started</a>
+                        <div id="heroIcons">
+                            <img src="public/appleIcon.svg" alt="Apple icon">
+                            <img src="public/androidIcon.svg" alt="Android icon">
+                        </div>
                     </div>
                     <div class="inline">
                         <p>Brought to you by:</p>
-                        <img class="float" src="public/JmBullionLogo.svg" alt="JmBullion logo">
+                        <a href="#"><img class="float" src="public/JmBullionLogo.svg" alt="JmBullion logo"></a>
                         <p style="font-size: 24px;">+</p>
-                        <img class="float" src="public/metalsLogo.svg" alt="A-mark precious metals logo">
+                        <a href="#"><img class="float" src="public/metalsLogo.svg" alt="A-mark precious metals logo"></a>
                     </div>
                 </div>
                 <div id="heroRight">
@@ -64,9 +78,9 @@
                 </div>
             </div>
         </section>
-        <hr>
+        <hr style="margin: 60px auto 80px;">
         <section id="features" class="grayText">
-            <div id="featuresTop">
+            <div>
                 <h1 style="margin-bottom: 20px;">Create your precious metals portfolio today</h1>
                 <p style="margin-bottom: 40px;">GoldX offers a variety of features which make it the best place to trade precious metals</p>
             </div>
@@ -133,35 +147,35 @@
                         <td data-label="Buy Price">$1,789.81</td>
                         <td data-label="Change (24hr)" class="redText">-$8.84 (-0.57%) ↓</td>
                         <td data-label="Chart"><img src="public/goldChart.svg" alt="Gold chart"></td>
-                        <td data-label="Buy Now"><a href="#" class="btnFYellow" >Buy</a></td>
+                        <td data-label="Buy Now"><a href="#" class="btnFillYellow" >Buy</a></td>
                     </tr>
                     <tr>
                         <td data-label="Product">Silver</td>
                         <td data-label="Buy Price">$26.89</td>
                         <td data-label="Change (24hr)" class="redText">$ -0.08 (-0.23%) ↓</td>
                         <td data-label="Chart"><img src="public/silverChart.svg" alt="Silver chart"></td>
-                        <td data-label="Buy Now"><a href="#" class="btnFYellow">Buy</a></td>
+                        <td data-label="Buy Now"><a href="#" class="btnFillYellow">Buy</a></td>
                     </tr>
                     <tr>
                         <td data-label="Product">Platinum</td>
                         <td data-label="Buy Price">$1,248.10</td>
                         <td data-label="Change (24hr)" class="greenText">$ 8.19 (+1.18%) ↑</td>
                         <td data-label="Chart"><img src="public/platinumChart.svg" alt="Platinum chart"></td>
-                        <td data-label="Buy Now"><a href="#" class="btnFYellow">Buy</a></td>
+                        <td data-label="Buy Now"><a href="#" class="btnFillYellow">Buy</a></td>
                     </tr>
                     <tr style="margin-bottom: 0px;">
                         <td data-label="Product">Palladium</td>
                         <td data-label="Buy Price">$3,035.82</td>
                         <td data-label="Change (24hr)" class="greenText">$ 34.03 (+4.58%) ↑</td>
                         <td data-label="Chart"><img src="public/palladiumChart.svg" alt="Palladium chart"></td>
-                        <td data-label="Buy Now"><a href="#" class="btnFYellow">Buy</a></td>
+                        <td data-label="Buy Now"><a href="#" class="btnFillYellow">Buy</a></td>
                     </tr>
                 </tbody>
             </table>
         </section>
         <hr>
         <section id="advantages">
-            <div id="advantagesTop">
+            <div>
                 <h1 style="margin-bottom: 20px;">Why Choose Us</h1>
                 <p style="margin-bottom: 40px;">GoldX is the premier digital precious metals trading platform - below are some of the reasons why.</p>
             </div>
@@ -195,13 +209,13 @@
         </section>
         <hr>
         <section id="testimonials">
-            <div id="testimonialsTop">
+            <div>
                 <h1 style="margin-bottom: 20px;">GoldX Customer Reviews</h1>
                 <p style="margin-bottom: 40px;">Customer satisfaction is our highest priority - see what real GoldX customers are saying below.</p>
             </div>
             <div id="wrapper">
-                <a href="#"><img src="public/testimonialSliderArrowLeft.svg" alt="Left arrow"></a>
-                <div id="testimonialsCardSlider">
+                <div id="left" class="arrow"><img src="public/testimonialSliderArrowLeft.svg" alt="Right arrow"></div>
+                <div id="slider">
                     <figure>
                         <img src="public/testimonialFiveStars.svg" alt="Five stars">
                         <cite>Justin Hammond</cite>
@@ -222,20 +236,23 @@
                         <cite>Stephen Lewis</cite>
                         <blockquote>Finally a service like this!</blockquote>
                     </figure>
-                    <!--
-                    <figurestyle="background-color: bisque;">
+                    <figure>
                         <img src="public/testimonialFiveStars.svg" alt="Five stars">
-                        <cite>Rena Rena</cite>
-                        <blockquote>Best of all!</blockquote>
+                        <cite>Winston Churchill</cite>
+                        <blockquote>No One Would Do Such Things. But that one is actually a great one.</blockquote>
                     </figure>
-                    -->
+                    <figure>
+                        <img src="public/testimonialFiveStars.svg" alt="Five stars">
+                        <cite>Abraham Lincoln</cite>
+                        <blockquote>Give me 6 hours to understand where to store my money and I will spend the 4 on this page.</blockquote>
+                    </figure>
                 </div>
-                <a href="#"><img src="public/testimonialSliderArrowRight.svg" alt="Right arrow"></a>
+                <div id="right" class="arrow"><img src="public/testimonialSliderArrowRight.svg" alt="Right arrow"></div>
             </div>
         </section>
         <hr>
         <section id="blog">
-            <div id="blogTop">
+            <div>
                 <h1 style="margin-bottom: 20px;">Our Blog</h1>
                 <p style="margin-bottom: 40px;">Stay up to date by reading our latest blog posts and updates, below.</p>
             </div>
@@ -328,12 +345,12 @@
             <div id="footerPaymentsApps">
                 <div>
                     <h3>Major Payment<br>Methods Accepted</h3>
-                    <a href="#"><img src="public/visaLogo.svg" alt="Visa logo"></a>
-                    <a href="#"><img src="public/masterCardLogo.svg" alt="MasterCard logo"></a>
-                    <a href="#"><img src="public/americanExpressLogo.svg" alt="American Express logo"></a>
-                    <a href="#"><img src="public/discoverNetworkLogo.svg" alt="Discover Network logo"></a>
-                    <a href="#"><img src="public/payPalLogo.svg" alt="PayPal logo"></a>
-                    <a href="#"><img src="public/coinLogo.svg" alt="Coin logo"></a>
+                    <img src="public/visaLogo.svg" alt="Visa logo">
+                    <img src="public/masterCardLogo.svg" alt="MasterCard logo">
+                    <img src="public/americanExpressLogo.svg" alt="American Express logo">
+                    <img src="public/discoverNetworkLogo.svg" alt="Discover Network logo">
+                    <img src="public/payPalLogo.svg" alt="PayPal logo">
+                    <img src="public/coinLogo.svg" alt="Coin logo">
                 </div>
                 <div>
                     <h3>Download Our<br>Free Apps</h3>
@@ -352,5 +369,22 @@
             </div>
         </div>
     </footer>
+    <script>
+        const carousel = document.getElementById("slider");
+        const arrowBtns = document.querySelectorAll("#wrapper .arrow");
+        const firstCardWidth = carousel.querySelector("figure").offsetWidth;
+    
+        arrowBtns.forEach(btn => {
+          btn.addEventListener("click", () => {
+            const maxScrollLeft = carousel.scrollWidth - carousel.offsetWidth;
+            if (btn.id === "left" && carousel.scrollLeft > 0) {
+              carousel.scrollLeft -= firstCardWidth;
+            } else if (btn.id === "right" && carousel.scrollLeft < maxScrollLeft) {
+              carousel.scrollLeft += firstCardWidth;
+            }
+          });
+        });
+        
+    </script>
 </body>
 </html>
