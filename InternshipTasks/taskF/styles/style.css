@@ -23,7 +23,11 @@ img{
 h1{
   font-size: 46px;
   font-weight: 600;
+  margin-bottom: 20px;
   color: var(--blackDark);
+}
+h1 + p{
+  margin-bottom: 40px;
 }
 h2{
   font-size: 32px;
@@ -210,9 +214,11 @@ nav a {
 }
 #heroRight{
   align-content: center;
-  text-align: center;
   width: 50%;
   padding-right: 60px;
+}
+#heroRight img{  
+  width: 100%;
 }
 @media (max-width: 1200px) {
   #heroLeft{
@@ -224,7 +230,10 @@ nav a {
 }
 @media (max-width: 1000px) {
   #heroLeft{
-    padding-right: 0 30px;
+    padding-right: 30px;
+  }
+  #heroRight{
+    padding-right: 0;
   }
   #heroRight img{
     width: 90%;
@@ -242,7 +251,6 @@ nav a {
   #heroRight{
     margin-top: 20px;
     width: 100%;
-    padding-right: 0;
   }
   #heroRight img{
     width: 100%;
@@ -261,7 +269,7 @@ nav a {
   border: none;
 }
 #heroBtnIcons{
-  margin: 40px 0;
+  margin: 0 0 40px;
   display: flex; /*= align-items:center*/
   flex-wrap: wrap;
   gap: 30px;
@@ -300,14 +308,13 @@ nav a {
   text-align: center;
 }
 #featuresTwo{
-  display: grid; 
-  grid-template-columns: auto auto; 
-  grid-template-rows: 1fr;
+  display: flex; 
+  flex-direction: row;
 }
 #featuresLeft{ 
-  grid-column: 1;
-  grid-row: 1;
-  display: grid;
+  width: 50%;
+  padding-right: 85px;
+  display: flex;
   flex-direction: column;
   gap: 35px;
 }
@@ -324,33 +331,44 @@ nav a {
   width: 100px;
 }
 #featuresRight {  
+  align-content: center;
+  width: 50%;
   padding-right: 60px;
-  padding-left: 85px;
-  grid-column: 2;
-  grid-row: 1;
-  display: flex;
-  align-items: center;
+}
+#featuresRight img{  
+  width: 100%;
 }
 @media (max-width: 1200px) {
-  #featuresTwo {
-    grid-template-columns: 1fr; 
-    grid-template-rows: 1fr auto; 
-    gap: 20px;
-  }
   #featuresLeft{
-    margin: auto;
-    grid-column: 1;
-    grid-row: 1;
+    padding-right: 60px;
   }
-  #featuresLeft .featureChild {
-    grid-template-columns: auto 1fr; 
+  #featuresRight img{
+    width: 100%;
+  }
+}
+@media (max-width: 1000px) {
+  #featuresLeft{
+    padding-right: 30px;
   }
   #featuresRight{
-    padding: 0;
-    margin: auto;
-    grid-column: 1;
-    grid-row: 2;
-    margin-top: 40px;
+    padding-right: 0;
+  }
+  #featuresRight img{
+    width: 90%;
+  }
+}
+@media (max-width: 800px) {
+  #featuresTwo {
+    padding: 30px 0;
+    flex-direction: column;
+  }
+  #featuresLeft{
+    padding-right: 0;
+    width: 100%;
+  }
+  #featuresRight{
+    margin-top: 50px;
+    width: 100%;
   }
   #featuresRight img{
     width: 100%;
@@ -360,6 +378,7 @@ nav a {
 
 #products{
   display: flex;
+  gap: 20px;
   justify-content: center;
   flex-direction: column;
 }
