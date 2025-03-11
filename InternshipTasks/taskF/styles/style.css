@@ -19,6 +19,7 @@ body{
 }
 img{
   user-select: none;
+  height: auto;
 }
 h1{
   font-size: 46px;
@@ -206,7 +207,7 @@ nav a {
   display: flex;
   flex-direction: row;
   align-items: center; 
-  margin-top: 15px;
+  margin-top: 30px;
 }
 #heroLeft{
   width: 50%;
@@ -284,6 +285,9 @@ nav a {
   align-items: center;
   gap: 10px;
 }
+.plus{
+  font-size: 24px;
+}
 .btnNotFillBlue{
   color: var(--blue);
   background-color:white;
@@ -301,6 +305,10 @@ nav a {
   #heroBtnIcons{
     row-gap: 20px;
   }
+}
+
+.firstHr{
+  margin: 60px auto 80px;
 }
 
 
@@ -390,6 +398,9 @@ table{
 }
 tr{
   border:1pt solid var(--blueTableBorders);
+}
+.lastTr{
+  margin-bottom: 0px;
 }
 th{
   padding: 12px 0;
@@ -483,7 +494,7 @@ td{
 #slider{
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 25%;
+  grid-auto-columns: calc((100% - 6px)/4);
   gap: 2px;
   padding: 5px;
   overflow-x: auto; 
@@ -511,26 +522,30 @@ figure blockquote{
 }
 @media (max-width: 1400px){
   #slider {
-    grid-auto-columns: 33%;
+    grid-auto-columns: calc((100% - 40px)/3);
     gap:20px;
   }
 }
 @media (max-width: 1100px){
   #slider {
     grid-auto-columns: 50%;
-    gap:0;
+    gap:0px;
   }
 }
 @media (max-width: 750px){
   #slider {
     grid-auto-columns: 100%;
+    align-items: stretch;
   }
 }
-@media (max-width: 450px){
-  #slider {
-    gap: 50px;
+@media (max-width: 420px){
+  figure{
+    box-shadow: none;
+    height: 70%;
+    padding: auto 0px auto;
+    justify-content:center ;
+    width: auto;
   }
- 
 }
 
 
