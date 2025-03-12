@@ -1,5 +1,5 @@
 
-const arrowBtns = document.querySelectorAll("#wrapper .arrow");
+const arrowBtns = document.querySelectorAll("#wrapper .testimonials__arrow");
 const slider = document.getElementById("slider");
 if (!arrowBtns || !slider) {
     console.error("Container slider elements not found");

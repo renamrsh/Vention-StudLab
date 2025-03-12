@@ -1,508 +1,336 @@
-:root {
-  --white: #ffffff;
-  --blue: #2F80ED;
-  --hrGray: #DDDDDD;
-  --lightGray: #828282;
-  --blueTableBorders: rgba(47, 128, 237, 0.3);
-  --blackLight: #333333; 
-  --blackDark: #050F19;
-}
-
-*{
+* {
   margin: 0;
 }
-body{
-  font-family: 'Open Sans';
+
+body {
+  font-family: "Open Sans";
   font-weight: 400;
   font-size: 16px;
-  color: var(--blackLight);
+  color: #333333;
 }
-img{
-  user-select: none;
+
+img {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   height: auto;
 }
-h1{
+
+h1 {
   font-size: 46px;
   font-weight: 600;
   margin-bottom: 20px;
-  color: var(--blackDark);
+  color: #050F19;
 }
-h1 + p{
+h1 + p {
   margin-bottom: 40px;
 }
-h2{
+
+h2 {
   font-size: 32px;
   font-weight: 400;
-  color: var(--blackDark);
+  color: #050F19;
 }
-h3{
+
+h3 {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 16px;
-  color: var(--blackDark);
+  color: #050F19;
 }
-cite{
-  font-style: normal;
-  font-size: 22px;
-}
-a{
+
+a {
   text-decoration: none;
 }
-hr{
+
+hr {
   width: 600px;
   margin: 80px auto;
   height: 1px;
   border-radius: 5px;
   border: none;
   opacity: 0.3;
-  background-color: var(--blue);
+  background-color: #2F80ED;
 }
 
-nav,#heroTwo, #hContainer, #features, #products, #advantages, #blog, #fContainer{
+.hr--vertical {
+  width: 45px;
+  transform: rotate(90deg);
+  background-color: #DDDDDD;
+  margin: 0 27.5px;
+}
+
+.hr--adjusted-margin {
+  margin: 60px auto 80px;
+}
+
+.button {
+  color: #ffffff;
+  background-color: #2F80ED;
+  border: none;
+  font-weight: 600;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 10px 30px;
+}
+.button--email {
+  border-radius: 0 5px 5px 0;
+}
+.button--filled-blue {
+  font-size: 24px;
+  padding: 14px 44px;
+}
+.button--filled-yellow {
+  background-color: #FFBD00;
+}
+.button--outline-blue.increase-specificity {
+  color: #2F80ED;
+  background-color: #ffffff;
+  border: 1px solid #2F80ED;
+  margin-right: 10px;
+}
+
+.arrow--adjusted {
+  margin-top: -2px;
+}
+
+.text--red {
+  color: #A01313;
+}
+
+.text--green {
+  color: #135D2D;
+}
+
+.text--gray {
+  color: #333333;
+}
+
+.header__container,
+.nav,
+.hero__container,
+.features,
+.products,
+.advantages,
+.blog,
+.footer__container {
   max-width: 1200px;
   margin: auto;
 }
-nav,#heroTwo, #features, #products, #advantages, #blog{
+
+.nav,
+.hero__container,
+.features,
+.products,
+.advantages,
+.blog {
   padding: 0 120px;
 }
-#ADV, #products, #advantages, #testimonials, #blog{
+
+.hero__adv,
+.products,
+.advantages,
+.testimonials,
+.blog {
   text-align: center;
 }
 
-header{
+.header {
   width: 100%;
   margin: auto;
   background-color: rgba(47, 128, 237, 0.1);
 }
-#hContainer{
+.header__container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 12px 120px;
 }
-#hStocks{
+.header__stocks {
   display: flex;
   flex-direction: row;
   font-weight: 600;
   gap: 25px;
 }
-#hStocks div{
-  display: flex; 
+.header__stocks div {
+  display: flex;
   gap: 10px;
 }
-.arrowUp{
-  margin-top: -2px;
-}
-.redText{
-  color: rgba(160, 19, 19, 1);
-}
-.greenText{
-  color: rgba(19, 93, 45, 1);
-}
-.grayText{
-  color:rgba(51, 51, 51, 1);
-}
-@media (max-width: 1360px) {
-  #hContainer{
-    align-items: baseline;
-    gap: 10px;
-  }
-  #hStocks{
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-}
-@media (max-width: 850px) {
-  #hContainer{
-    flex-direction: column;
-    padding: 12px 20px;
-  }
-}
-@media (max-width: 480px) {
-  #hContainer{
-    padding: 12px 30px;
-  }
-  #hStocks div{
-    width: 100%;
-    text-align: left;
-    gap: 0;
-  }
-}
 
-
-#nContainer{
+.nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 20px 120px;
 }
-nav a {
+.nav a {
   font-size: 18px;
   font-weight: 600;
-  color: var(--blackDark);
+  color: #050F19;
 }
-#nMenu{
+.nav__menu {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-#nMenuPages{
+.nav__pages {
   display: flex;
   gap: 40px;
 }
-#nMenuUser{
+.nav__user {
   display: flex;
   align-items: center;
   gap: 40px;
 }
-#hrVertical{
-  width: 45px;
-  transform:rotate(90deg);
-  background-color: var(--hrGray);
-  margin: 0 27.5px;
-}
-@media (max-width: 1200px) {
-  nav{
-    margin: auto;
-    padding: 0 0;
-  }
-  #nContainer{
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-    gap: 20px;
-  }
-  #nMenu{
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-  }
-  #nMenuPages{
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  #nMenuUser{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 40px;
-  }
-  #hrVertical{
-    visibility: hidden;
-  }
-}
 
-
-#ADV{
-  color: var(--white);
+.hero__adv {
+  color: #ffffff;
   font-weight: 700;
   padding: 12px 20px;
-  background-color: var(--blue);
+  background-color: #2F80ED;
 }
-#heroTwo{
+.hero__container {
   display: flex;
   flex-direction: row;
-  align-items: center; 
+  align-items: center;
   margin-top: 30px;
 }
-#heroLeft{
+.hero__left {
   width: 50%;
   padding-right: 116px;
 }
-#heroRight{
+.hero__right {
   align-content: center;
   width: 50%;
   padding-right: 60px;
 }
-#heroRight img{  
+.hero__right img {
   width: 100%;
 }
-@media (max-width: 1200px) {
-  #heroLeft{
-    padding-right: 60px;
-  }
-  #heroRight img{
-    width: 100%;
-  }
-}
-@media (max-width: 1000px) {
-  #heroLeft{
-    padding-right: 30px;
-  }
-  #heroRight{
-    padding-right: 0;
-  }
-  #heroRight img{
-    width: 90%;
-  }
-}
-@media (max-width: 800px) {
-  #heroTwo {
-    padding: 30px 0;
-    flex-direction: column;
-  }
-  #heroLeft{
-    padding-right: 0;
-    width: 100%;
-  }
-  #heroRight{
-    margin-top: 20px;
-    width: 100%;
-  }
-  #heroRight img{
-    width: 100%;
-  }
-  hr{
-    width: 50%;
-  }
-}
-.btnFillBlue{
-  color: var(--white);
-  background-color:var(--blue);
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 24px;
-  padding: 14px 44px;
-  border: none;
-}
-#heroBtnIcons{
+.hero__button-icons {
   margin: 0 0 40px;
-  display: flex; /*= align-items:center*/
+  display: flex;
   flex-wrap: wrap;
   gap: 30px;
 }
-#heroIcons{
+.hero__icons {
   display: flex;
   align-items: center;
   gap: 20px;
 }
-.inline{
+.hero__brought-by {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.plus{
+.hero__plus {
   font-size: 24px;
 }
-.btnNotFillBlue{
-  color: var(--blue);
-  background-color:white;
-  font-weight: 600;
-  border-radius: 5px;
-  font-size: 18px;
-  padding: 10px 30px;
-  border: 1px solid var(--blue);
-  margin-right: 10px;
-}
-@media (max-width: 400px) {
-  .inline{
-    flex-direction: column;
-  }
-  #heroBtnIcons{
-    row-gap: 20px;
-  }
-}
 
-.firstHr{
-  margin: 60px auto 80px;
-}
-
-
-#features > :first-child{
+.features > :first-child {
   text-align: center;
 }
-#featuresTwo{
-  display: flex; 
+.features__container {
+  display: flex;
   flex-direction: row;
 }
-#featuresLeft{ 
+.features__left {
   width: 50%;
   padding-right: 85px;
   display: flex;
   flex-direction: column;
   gap: 35px;
 }
-#featuresLeft .featureChild {
+.features__child {
   display: grid;
-  grid-template-columns: auto 1fr; 
+  grid-template-columns: auto 1fr;
   grid-template-rows: 1fr;
-  column-gap: 20px;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
 }
-.featureImg{
+.features__img {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100px;
 }
-#featuresRight {  
+.features__right {
   align-content: center;
   width: 50%;
   padding-right: 60px;
 }
-#featuresRight img{  
+.features__right img {
   width: 100%;
 }
-@media (max-width: 1200px) {
-  #featuresLeft{
-    padding-right: 60px;
-  }
-  #featuresRight img{
-    width: 100%;
-  }
-}
-@media (max-width: 1000px) {
-  #featuresLeft{
-    padding-right: 30px;
-  }
-  #featuresRight{
-    padding-right: 0;
-  }
-  #featuresRight img{
-    width: 90%;
-  }
-}
-@media (max-width: 800px) {
-  #featuresTwo {
-    padding: 30px 0;
-    flex-direction: column;
-  }
-  #featuresLeft{
-    padding-right: 0;
-    width: 100%;
-  }
-  #featuresRight{
-    margin-top: 50px;
-    width: 100%;
-  }
-  #featuresRight img{
-    width: 100%;
-  }
-}
 
-
-#products{
+.products {
   display: flex;
   gap: 20px;
   justify-content: center;
   flex-direction: column;
 }
-table{
-    border-collapse: collapse;
-    border-style: hidden;
-    border-radius: 5px;
-    box-shadow: 0 0 0 1px var(--blueTableBorders);
+.products__table {
+  border-collapse: collapse;
+  border-style: hidden;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px rgba(47, 128, 237, 0.3);
 }
-tr{
-  border:1pt solid var(--blueTableBorders);
+.products tr {
+  border: 1px solid rgba(47, 128, 237, 0.3);
 }
-.lastTr{
+.products .table__row--last {
   margin-bottom: 0px;
 }
-th{
+.products th {
   padding: 12px 0;
-  font-weight:400;
-  color: var(--lightGray);
+  font-weight: 400;
+  color: #828282;
 }
-td{
+.products td {
   padding: 15px 50px;
 }
-.btnFillYellow{
-  color: white;
-  background-color:rgba(255, 189, 0, 1);
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 10px 30px;
-  border: none;
-}
-@media (max-width: 1300px) {
-  td{
-    padding: 15px 20px;
-  }
-}
-@media (max-width: 1000px) {
-  thead {
-    clip: rect(0 0 0 0);
-    position: absolute;
-    border: none;
-  }
-  table{
-    box-shadow: none;
-  }
-  tr {
-    display: block;
-    margin-bottom: 50px;
-  }
-  td {
-    border: none;
-    border: 1px solid var(--blueTableBorders);
-    display: block;
-  }
-  /*column names in mini tables*/
-  table td::before {
-    content: attr(data-label);
-    color: var(--lightGray);
-    float: left;
-    padding-left: 20px;
-  }
-}
-@media (max-width: 500px) {
-  td{
-    padding: 15px 0;
-  }
-}
 
-
-#advantagesFive{
+.advantages__container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 112px; 
+  gap: 112px;
   row-gap: 45px;
 }
-.advantageChild{
+.advantages__child {
   max-width: 325px;
 }
-.advantageChild > h2{
+.advantages__child h2 {
   margin-top: 12px;
 }
-.advantageChild > p{
+.advantages__child p {
   margin-top: 8px;
 }
-@media (max-width: 1000px) {
-  #advantagesFive{
-    gap: 20px; 
-  }
-}
 
-
-#testimonials{
+.testimonials {
   max-width: 1284px;
   margin: auto;
   padding: 0 78px;
 }
-#wrapper{
+.testimonials__wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
-#slider{
+.testimonials__slider {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc((100% - 6px)/4);
+  grid-auto-columns: calc((100% - 6px) / 4);
   gap: 2px;
   padding: 5px;
-  overflow-x: auto; 
+  overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none;
 }
-figure{
+.testimonials figure {
   place-self: center;
   min-height: 130px;
   padding: 30px 20px 15px;
@@ -514,133 +342,102 @@ figure{
   justify-content: baseline;
   align-items: center;
 }
-cite{
-  margin-top: 10px;
-}
-figure blockquote{
+.testimonials figure blockquote {
   margin-top: 8px;
 }
-@media (max-width: 1400px){
-  #slider {
-    grid-auto-columns: calc((100% - 40px)/3);
-    gap:20px;
-  }
-}
-@media (max-width: 1100px){
-  #slider {
-    grid-auto-columns: 50%;
-    gap:0px;
-  }
-}
-@media (max-width: 750px){
-  #slider {
-    grid-auto-columns: 100%;
-    align-items: stretch;
-  }
-}
-@media (max-width: 420px){
-  figure{
-    box-shadow: none;
-    height: 70%;
-    padding: auto 0px auto;
-    justify-content:center ;
-    width: auto;
-  }
+.testimonials cite {
+  margin-top: 10px;
+  font-style: normal;
+  font-size: 22px;
 }
 
-
-#blog{
+.blog {
   margin-bottom: 80px;
 }
-#blogArticles{
+.blog__container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 25px;
   flex-wrap: wrap;
 }
-article{
+.blog__article {
   text-align: left;
   min-height: 360px;
   width: 280px;
 }
-article > img{
+.blog__article img {
   border-radius: 5px;
   max-height: 180px;
   max-width: 280px;
 }
-article > h2{
+.blog__article h2 {
   margin: 20px 0 12px;
 }
-article > p{
+.blog__article p {
   margin-bottom: 12px;
 }
-.readMore{
-  color: var(--blue);
+.blog__read-more {
+  color: #2F80ED;
   font-weight: 600;
 }
 
-
-footer{
-  background-color: rgba(242, 242, 242, 1);
+.footer {
+  background-color: #F2F2F2;
 }
-#fContainer{
+.footer__container {
   padding: 60px 120px;
 }
-#footerPagesEmail{
+.footer__pages-subscribe {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: row;
   gap: 60px;
 }
-#footerPagesEmail ul{
+.footer__pages-subscribe ul {
   display: flex;
   flex-direction: column;
   gap: 10px;
   list-style: none;
   padding: 0;
 }
-footer li > a {
+.footer li a {
   font-size: 16px;
   font-weight: 600;
-  color: var(--lightGray);
+  color: #828282;
 }
-footer p {
+.footer p {
   font-weight: 600;
-  color: var(--lightGray);
+  color: #828282;
   margin-top: 10px;
 }
-#subscribeBox{
+.footer__subscribe {
   max-width: 360px;
 }
-#emailBox{
+.footer__email-box {
   margin-top: 16px;
   max-width: 360px;
   display: flex;
 }
-footer input{
+.footer input {
   width: 100%;
   border: none;
   font-size: 18px;
   padding: 10px 0 10px 12px;
   border-radius: 5px 0 0 5px;
 }
-footer input::placeholder{
-  color: rgba(189, 189, 189, 1);
+.footer input::-moz-placeholder {
+  color: #BDBDBD;
   font-size: 18px;
   font-weight: 400;
 }
-footer button{
-  color: white ;
-  background-color:var(--blue);
-  font-weight: 600;
-  border: none;
-  border-radius: 0 5px 5px 0;
+.footer input::placeholder {
+  color: #BDBDBD;
   font-size: 18px;
-  padding: 10px 30px ;
+  font-weight: 400;
 }
-#footerPaymentsApps{
+.footer__payments-apps {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -648,44 +445,229 @@ footer button{
   justify-content: space-between;
   align-items: center;
 }
-#footerPaymentsApps div{
+.footer__payments-apps div {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   gap: 20px;
   align-items: center;
 }
-#companies{
+.footer__companies {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   gap: 40px;
   align-items: center;
 }
-footer hr{
-  width: 100% !important;
-  margin: 30px auto !important;
-  border-radius: 1px !important;
-  opacity: 100% !important;
-  background-color: var(--hrGray) !important;
+.footer__hr {
+  width: 100%;
+  margin: 30px auto;
+  border-radius: 1px;
+  opacity: 100%;
+  background-color: #DDDDDD;
 }
-@media (max-width: 1000px) {
-  #footerPagesEmail div{
-    min-width: 170px;
+
+@media (max-width: 1400px) {
+  .header__container {
+    align-items: baseline;
+    gap: 10px;
   }
-  #footerPaymentsApps{
+  .header__stocks {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .products td {
+    padding: 15px 20px;
+  }
+  .testimonials__slider {
+    grid-auto-columns: calc((100% - 40px) / 3);
     gap: 20px;
   }
-  #heroTwo{
-    padding: 0 30px;
+}
+@media (max-width: 1200px) {
+  .nav {
+    margin: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    gap: 20px;
   }
-  #features, #products, #advantages, #testimonials{
-    padding: 0 30px;
+  .nav__menu {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
   }
-  #blog{
-    padding: 0 30px 0;
+  .nav__pages {
+    gap: 20px;
+    flex-wrap: wrap;
   }
-  #fContainer{
-    padding: 60px 30px;
+  .nav__user {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+  }
+  .hr--vertical {
+    visibility: hidden;
+  }
+  .hero__left {
+    padding-right: 60px;
+  }
+  .hero__right img {
+    width: 100%;
+  }
+  .features__left {
+    padding-right: 60px;
+  }
+  .features__right img {
+    width: 100%;
+  }
+  .testimonials__slider {
+    grid-auto-columns: 50%;
+    gap: 0px;
   }
 }
+@media (max-width: 1000px) {
+  .hero__container {
+    padding: 0 30px;
+  }
+  .hero__left {
+    padding-right: 30px;
+  }
+  .hero__right {
+    padding-right: 0;
+  }
+  .hero__right img {
+    width: 90%;
+  }
+  .features__left {
+    padding-right: 30px;
+  }
+  .features__right {
+    padding-right: 0;
+  }
+  .features__right img {
+    width: 90%;
+  }
+  .products {
+    /*column names in mini tables*/
+  }
+  .products__table {
+    box-shadow: none;
+  }
+  .products__table td::before {
+    content: attr(data-label);
+    color: #828282;
+    float: left;
+    padding-left: 20px;
+  }
+  thead {
+    clip: rect(0 0 0 0);
+    position: absolute;
+    border: none;
+  }
+  tr {
+    display: block;
+    margin-bottom: 50px;
+  }
+  td {
+    border: none;
+    border: 1px solid rgba(47, 128, 237, 0.3);
+    display: block;
+  }
+  .advantages__container {
+    gap: 20px;
+  }
+  .blog {
+    padding: 0 30px 0;
+  }
+  .footer__container {
+    padding: 60px 30px;
+  }
+  .footer__pages-subscribe div {
+    min-width: 170px;
+  }
+  .footer__payments-apps {
+    gap: 20px;
+  }
+  .features,
+  .products,
+  .advantages,
+  .testimonials {
+    padding: 0 30px;
+  }
+}
+@media (max-width: 850px) {
+  .header__container {
+    flex-direction: column;
+    padding: 12px 20px;
+  }
+  .hero__container {
+    padding: 0 30px;
+    flex-direction: column;
+  }
+  .hero__left {
+    padding-right: 0;
+    width: 100%;
+  }
+  .hero__right {
+    margin-top: 20px;
+    width: 100%;
+  }
+  .hero__right img {
+    width: 100%;
+  }
+  hr {
+    width: 50%;
+  }
+  .features__container {
+    padding: 30px 0;
+    flex-direction: column;
+  }
+  .features__left {
+    padding-right: 0;
+    width: 100%;
+  }
+  .features__right {
+    margin-top: 50px;
+    width: 100%;
+  }
+  .features__right img {
+    width: 100%;
+  }
+  .testimonials__slider {
+    grid-auto-columns: 100%;
+    align-items: stretch;
+  }
+}
+@media (max-width: 500px) {
+  .header__container {
+    padding: 12px 30px;
+  }
+  .header__stocks div {
+    width: 100%;
+    text-align: left;
+    gap: 0;
+  }
+  td {
+    padding: 15px 0;
+  }
+}
+@media (max-width: 420px) {
+  .hero__brought-by {
+    flex-direction: column;
+  }
+  .hero__button-icons {
+    row-gap: 20px;
+  }
+  figure {
+    box-shadow: none;
+    height: 70%;
+    padding: auto 0px auto;
+    justify-content: center;
+    width: auto;
+  }
+}/*# sourceMappingURL=style.css.map */
