@@ -1,6 +1,6 @@
 import { ArraySorter } from "../src/task07-array-sorter";
 
-describe("", () => {
+describe("sort integer arrays", () => {
     it("", () => {
         expect(ArraySorter.bubbleSort([3,1,2])).toStrictEqual([1,2,3]);
     });

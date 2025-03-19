@@ -17,11 +17,5 @@ export const longestIncSubseq = nums => {
             index = i;
         }
     }
-
     return nums.slice(maxIndex, maxIndex + maxSum);
 }
-
-/*
-console.log(longestIncSubseq([1, 3, 7, 4, 6, 7, 8, 1, 2, 5, 7, 8, 90, 1]));
-console.log(longestIncSubseq([5, 4, 3, 2, 1]));
-*/

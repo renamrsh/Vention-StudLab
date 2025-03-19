@@ -4,16 +4,14 @@ export const StringCalculator = {
     precedence(operator) {
         if (operator === "-" || operator === "+") {
             return 1;
-        }
-        if (operator === "*" || operator === "/") {
+        }else if (operator === "*" || operator === "/") {
             return 2;
         }
-        return 0;
     },
 
     calculate(expression) {
         if (!isNaN(expression)) {
-            return;
+            throw new Error("Invalid input");
         }
 
         //array with initial data
@@ -75,11 +73,3 @@ export const StringCalculator = {
         return (calcStack.peek()).toString();
     }
 }
-
-/*
-console.log(StringCalculator.calculate("2 + 3"));
-console.log(StringCalculator.calculate("2.5 * 4"));
-console.log(StringCalculator.calculate("10 / 4"));
-console.log(StringCalculator.calculate("(2 + 3) * 4"));
-console.log(StringCalculator.calculate("2 + 3 * 4"));
-*/

@@ -83,11 +83,6 @@ export const ArraySorter = {
 
         quickSortRec(arr, 0, size - 1);
         return arr;
-
+        
     }
 }
-
-/*
-console.log(ArraySorter.bubbleSort([3, 1, 2]));
-console.log(ArraySorter.quickSort([5, 3, 8, 1, 2])); 
-*/

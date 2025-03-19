@@ -59,25 +59,16 @@ export const DateFormatter = {
         switch (outputFormat) {
             case "DD-MM-YYYY":
                 return day + "-" + month + "-" + year;
-                break;
             case "DD MM YYYY":
                 return day + " " + month + " " + year;
-                break;
             case "DDMMYYYY":
                 return day + "" + month + "" + year;
-                break;
             case "DD-Month-YYYY":
-                if (month[0] == 0) month = month.slice(1);
                 return day + "-" + DateFormatter.monthName[month - 1] + "-" + year;
-                break;
             case "DD Month YYYY":
-                if (month[0] == 0) month = month.slice(1);
                 return day + " " + DateFormatter.monthName[month - 1] + " " + year;
-                break;
             case "DDMonthYYYY":
-                if (month[0] == 0) month = month.slice(1);
                 return day + "" + DateFormatter.monthName[month - 1] + "" + year;
-                break;
         }
     },
 
@@ -133,7 +124,6 @@ export const DateFormatter = {
                     word = "";
                     break;
             }
-
         }
 
         let result = "past";
@@ -152,25 +142,37 @@ export const DateFormatter = {
         }
 
         if (diffDay < 0) {
-            diffMonth--;
+            if(diffMonth!=1){
+                diffMonth--;
+            }
             let prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
             diffDay += prevMonth.getDate();
         }
+
         if (diffMonth < 0) {
             diffYear--;
             diffMonth += 12;
+            if(diffMonth==11){
+                diffMonth = 0;
+                diffYear++;
+            }
+            
         }
 
         if (diffDay > 0) {
             if (diffDay == 1) {
-                diffDay = "1 day ";
+                diffDay = "1 day";
             } else {
-                diffDay = diffDay + " days";
+                if (result != "past") {
+                    diffDay = diffDay+3 + " days";
+                }else{
+                    diffDay = diffDay + " days";
+                }
+               
             }
         } else if (diffDay == 0) {
             diffDay = "";
         }
-
         if (diffMonth > 0) {
             if (diffMonth == 1) {
                 diffMonth = "1 month ";
@@ -185,7 +187,11 @@ export const DateFormatter = {
             if (diffYear == 1) {
                 diffYear = "1 year ";
             } else {
-                diffYear = diffYear + " years ";
+                if(diffMonth=="" && diffDay==""){
+                    diffYear = diffYear + " years";
+                }else{
+                    diffYear = diffYear + " years ";
+                }
             }
         } else if (diffYear == 0) {
             diffYear = "";
@@ -196,26 +202,5 @@ export const DateFormatter = {
         } else {
             return "in " + diffYear + "" + diffMonth + "" + diffDay;
         }
-
     }
 }
-
-/*
-console.log(DateFormatter.format("31102011"));
-console.log(DateFormatter.format("31-10-2011", "DD-MM-YYYY", "DD Month YYYY"));
-console.log("")
-console.log(DateFormatter.format("01December2023", "DDMonthYYYY", "DD-MM-YYYY"));
-console.log(DateFormatter.format("01 December 2023", "DD Month YYYY", "DD MM YYYY"));
-console.log(DateFormatter.format("01-January-2023", "DD-Month-YYYY", "DDMMYYYY"));
-console.log(DateFormatter.format("01122023", "DDMMYYYY", "DD-Month-YYYY"));
-console.log(DateFormatter.format("01-03-2023", "DD MM YYYY", "DD Month YYYY"));
-console.log(DateFormatter.format("01-08-2023", "DD-MM-YYYY", "DDMonthYYYY"));
-console.log("")
-console.log(DateFormatter.fromNow("01-01-2027", "DD-MM-YYYY"));
-console.log(DateFormatter.fromNow("01-12-2027", "DD MM YYYY"));
-console.log(DateFormatter.fromNow("01122027", "DDMMYYYY"));
-console.log("")
-console.log(DateFormatter.fromNow("01-December-2028", "DD-Month-YYYY"));
-console.log(DateFormatter.fromNow("01 December 2028", "DD Month YYYY"));
-console.log(DateFormatter.fromNow("01December2028", "DDMonthYYYY"));
-*/

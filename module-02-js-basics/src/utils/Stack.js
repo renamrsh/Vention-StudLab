@@ -17,12 +17,3 @@ class Stack {
 }
 
 export default Stack;
-
-
-/*
-BinaryConverter.convertBase([1,5], 10, 16); // → [ "F" ]
-BinaryConverter.convertBase([15], 10, 16); // → [ "F" ] <- changed
-
-arrayStats([7, 2, 10]);  // → { min: 1, max: 7, median: 3 }
-arrayStats([7, 2, 10]);  // → { min: 2, max: 10, median: 7 } <- changed
-*/

@@ -1,6 +1,6 @@
 export const formatText = (text, maxLength = null, maxLines = null, wrapType = null) => {
-    if (!text || typeof (text) != "string") {
-        return null;
+    if (!text || text.trim().length == 0 || typeof (text) !== "string") {
+        throw new Error("Invalid input");
     }
 
     let copyText = text.slice();
@@ -21,9 +21,6 @@ export const formatText = (text, maxLength = null, maxLines = null, wrapType = n
             case "character":
                 let n = 0;
                 for (let i = 1; i < textSize; i++) {
-                    if (i > 50) {
-                        break;
-                    }
                     formattedText = copyText.slice(0, i + n) + "\n" + copyText.slice(i + n);
                     copyText = formattedText;
                     n++;
@@ -31,7 +28,7 @@ export const formatText = (text, maxLength = null, maxLines = null, wrapType = n
                 break;
             case "sentence":
                 for (let i = 0; i < textSize; i++) {
-                    if (formattedText[i] == ".") {
+                    if (formattedText[i] == "." || formattedText[i] == "!" || formattedText[i] == "?") {
                         formattedText = copyText.slice(0, i + 1) + "\n" + copyText.slice(i + 2);
                         copyText = formattedText;
                         i++;
@@ -75,10 +72,6 @@ export const formatText = (text, maxLength = null, maxLines = null, wrapType = n
             }
         }
     }
+    
     return formattedText;
 }
-
-/*
-formatText("Hello world, this is JavaScript", 10, 2, "word");
-formatText("Hello world!", 5, 3, "character");
-*/

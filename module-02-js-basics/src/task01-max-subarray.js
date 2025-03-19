@@ -37,9 +37,3 @@ export const getMaxSubSumO = nums => {
     }
     return maxSum;
 };
-
-/*
-console.log(getMaxSubSumO([-1, 2, 3, -9]));
-console.log(getMaxSubSumO([2, -1, 2, 3, -9]));
-console.log(getMaxSubSumO([-1, 2, 3, -9, 11]));
-*/

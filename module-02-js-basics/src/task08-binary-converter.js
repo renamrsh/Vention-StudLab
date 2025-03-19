@@ -3,7 +3,6 @@ export const BinaryConverter = {
         let num = number;
         let arr = []
         arr[0] = 1;
-        
         for (let i = 1; arr[i - 1] * 2 <= num; i++) {
             arr[i] = arr[i - 1] * 2;
         }
@@ -28,41 +27,70 @@ export const BinaryConverter = {
         }
         return answer;
     },
-    //let num = Number.parseInt(arr.reduce((acc, curr)=> acc+=curr.toString()));
     convertBase(numberArray, fromBase, toBase) {
         let arr = numberArray;
-        if (fromBase == toBase) {
-            return;
+        if (fromBase == toBase || numberArray.length == 0) {
+            throw new Error("Invalid input");
         }
-
+        
         const binaryToDecimal = nums => {
             return this.toDecimal(nums);
         }
+        
         const octalToDecimal = nums => {
-
-        }
-        const hexadecimalToDecimal = nums => {
             let arr = nums;
-            let size = arr.length-1;
+            let size = arr.length - 1;
             let i = size;
             let answer = 0;
             let newNum;
-            while(arr && i>=0){
+            while (arr && i >= 0) {
                 newNum = arr[i];
-                if(isNaN(newNum)){
-                    newNum = arr[i].charCodeAt(0)-55;
-                }
-                answer += Math.pow(16,size-i) * newNum;
+                answer += Math.pow(8, size - i) * newNum;
                 i--;
             }
             return answer;
         }
+
+        const hexadecimalToDecimal = nums => {
+            let arr = nums;
+            let size = arr.length - 1;
+            let i = size;
+            let answer = 0;
+            let newNum;
+            while (arr && i >= 0) {
+                newNum = arr[i];
+                if (isNaN(newNum)) {
+                    newNum = arr[i].charCodeAt(0) - 55;
+                }
+                answer += Math.pow(16, size - i) * newNum;
+                i--;
+            }
+            return answer;
+        }
+
         const decimalToBinary = nums => {
             return this.toBinary(nums);
         }
-        const decimalToOctal = nums => {
 
+        const decimalToOctal = nums => {
+            let num;
+            if (nums.length > 1) {
+                num = nums.reduce((acc, curr) => acc + curr.toString());
+            } else {
+                num = nums;
+            }
+            let newNum;
+            let arr = [];
+            let i = 0;
+            while (num) {
+                newNum = num % 8;
+                arr[i] = newNum;
+                num = Math.trunc(num / 8);
+                i++;
+            }
+            return arr.reverse();
         }
+
         const decimalToHexadecimal = nums => {
             let num;
             if (nums.length > 1) {
@@ -73,7 +101,7 @@ export const BinaryConverter = {
             let newNum;
             let arr = [];
             let i = 0;
-            while (num && i < 15) {
+            while (num) {
                 newNum = num % 16;
                 if (newNum <= 9) {
                     arr[i] = newNum;
@@ -95,18 +123,9 @@ export const BinaryConverter = {
                         return decimalToOctal(binaryToDecimal(arr));
                     case 16:
                         return decimalToHexadecimal(binaryToDecimal(arr));
+                    default:
+                        throw new Error("Invalid to converter type");
                 }
-                break;
-            case 10:
-                switch (toBase) {
-                    case 2:
-                        return decimalToBinary(arr);
-                    case 8:
-                        return decimalToOctal(arr);
-                    case 16:
-                        return decimalToHexadecimal(arr);
-                }
-                break;
             case 8:
                 switch (toBase) {
                     case 2:
@@ -115,16 +134,27 @@ export const BinaryConverter = {
                         return octalToDecimal(arr);
                     case 16:
                         return decimalToHexadecimal(octalToDecimal(arr));
+                    default:
+                        throw new Error("Invalid to converter type");
                 }
-                break;
+            case 10:
+                switch (toBase) {
+                    case 2:
+                        return decimalToBinary(arr);
+                    case 8:
+                        return decimalToOctal(arr);
+                    case 16:
+                        return decimalToHexadecimal(arr);
+                    default:
+                        throw new Error("Invalid to converter type");
+                }
             case 16:
                 switch (toBase) {
                     case 2:
-                        let hexToDec = hexadecimalToDecimal(arr);
-                        let diff = toString(hexToDec).length*4%10;
-                        let answer = decimalToBinary(hexToDec);
-                        if(diff!=0){
-                            while(diff){
+                        let answer = decimalToBinary(hexadecimalToDecimal(arr));
+                        let diff = answer.length%4;
+                        if (answer.length%4 != 0) {
+                            while (diff) {
                                 answer.unshift(0);
                                 diff--;
                             }
@@ -134,29 +164,12 @@ export const BinaryConverter = {
                         return decimalToOctal(hexadecimalToDecimal(arr));
                     case 10:
                         return hexadecimalToDecimal(arr);
+                    default:
+                        throw new Error("Invalid to converter type");
                 }
-                break;
+            default:
+                throw new Error("Invalid from converter type");
         }
+
     }
 }
-
-/*
-console.log(BinaryConverter.toBinary(10));
-console.log(BinaryConverter.toDecimal([1, 0, 1, 0]));
-console.log(BinaryConverter.convertBase([1, 5], 10, 16)); // → [ "F" ] 
-console.log(BinaryConverter.convertBase(["F", 5], 16, 10)); // → 245 
-console.log(BinaryConverter.convertBase([1, 1, 0, 1, 1, 1], 2, 10)); // → 55
-console.log(BinaryConverter.convertBase([27], 10, 2)); // →  [1, 1, 0, 1, 1]
-console.log(BinaryConverter.convertBase([1, 0, 0, 1, 0, 0, 0, 1, 1], 2, 16)); // → [1, 2, 3]
-console.log(BinaryConverter.convertBase([2, 4, "F"], 16, 2)); // →  [0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1]
-*/
-
-console.log(BinaryConverter.convertBase([], 8, 10)); // → 
-console.log(BinaryConverter.convertBase([], 8, 2)); // →  
-console.log(BinaryConverter.convertBase([], 8, 16)); // →  
-
-
-console.log(BinaryConverter.convertBase([], 10, 8)); // →  
-console.log(BinaryConverter.convertBase([], 2, 8)); // →  
-console.log(BinaryConverter.convertBase([], 16, 8)); // →  
-
