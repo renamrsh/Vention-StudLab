@@ -5,12 +5,12 @@ describe("calculates the minimum, maximum, and median values from an array of in
         expect(() => arrayStats(null)).toThrowError()
     });
     it("", () => {
-        expect(arrayStats([3, 1, 2, 5, 4])).toBe("min: 1, max: 5, median: 3");
+        expect(arrayStats([3, 1, 2, 5, 4])).toStrictEqual({min: 1, max: 5, median: 3});
     });
     it("", () => {
-        expect(arrayStats([7, 2, 10])).toBe("min: 2, max: 10, median: 7");
+        expect(arrayStats([7, 2, 10])).toStrictEqual({min: 2, max: 10, median: 7});
     });
     it("", () => {
-        expect(arrayStats([7, 2, 4, 10])).toBe("min: 2, max: 10, median: 5.5");
+        expect(arrayStats([7, 2, 4, 10])).toStrictEqual({min: 2, max: 10, median: 5.5});
     });
 });

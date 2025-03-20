@@ -1,6 +1,6 @@
 export const longestIncSubseq = nums => {
     const size = nums.length;
-    let sum = 0, maxSum = sum, index = 0, maxIndex = index;
+    let sum = 1, maxSum = sum, index = 0, maxIndex = index;
     for (let i = 1; i < size; i++) {
         if (nums[i - 1] < nums[i]) {
             sum++;

@@ -8,6 +8,9 @@ describe("find and return the longest increasing subsequence from the provided i
         expect(longestIncSubseq([5, 4, 3, 2, 1])).toBeOneOf([[5], [4], [3], [2], [1]]);
     });
     it("", () => {
+        expect(longestIncSubseq([10, 20, 35, 80])).toStrictEqual([10, 20, 35, 80]);
+    });
+    it("", () => {
         expect(longestIncSubseq([2, 5, 3, 4, 2, 3, 1, 2, 0, 1])).toBeOneOf([[2, 5], [3, 4], [2, 3], [1, 2], [0, 1]]);
     });
 });

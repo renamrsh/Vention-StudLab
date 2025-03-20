@@ -22,7 +22,7 @@ export const BinaryConverter = {
         let j = 0;
         let answer = 0;
         for (let i = size - 1; i >= 0; i--) {
-            answer += arr[j] * Math.pow(2, i);
+            answer += arr[j] * (2 ** i);
             j++;
         }
         return answer;
@@ -45,7 +45,7 @@ export const BinaryConverter = {
             let newNum;
             while (arr && i >= 0) {
                 newNum = arr[i];
-                answer += Math.pow(8, size - i) * newNum;
+                answer += 8 ** (size - i) * newNum;
                 i--;
             }
             return answer;
@@ -62,7 +62,7 @@ export const BinaryConverter = {
                 if (isNaN(newNum)) {
                     newNum = arr[i].charCodeAt(0) - 55;
                 }
-                answer += Math.pow(16, size - i) * newNum;
+                answer +=(16 **(size - i)) * newNum;
                 i--;
             }
             return answer;
