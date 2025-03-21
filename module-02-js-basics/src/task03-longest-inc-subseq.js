@@ -9,10 +9,6 @@ export const longestIncSubseq = nums => {
                 maxIndex = index;
             }
         } else {
-            if (maxSum < sum) {
-                maxSum = sum;
-                maxIndex = index;
-            }
             sum = 1;
             index = i;
         }

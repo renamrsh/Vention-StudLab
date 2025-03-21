@@ -10,7 +10,10 @@ describe("converting numbers between binary, decimal, and other bases", () => {
         expect(() => BinaryConverter.convertBase(99, 99)).toThrowError();
 
     });
-    
+    it("throws error for invalid from converter type", () => {
+        expect(() => BinaryConverter.convertBase([1, 0, 1, 0], 3, 10)).toThrowError("Invalid converter type");
+    });
+
     it("", () => {
         expect(BinaryConverter.toBinary(10)).toStrictEqual([1, 0, 1, 0]);
     });

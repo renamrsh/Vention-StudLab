@@ -124,7 +124,7 @@ export const BinaryConverter = {
                     case 16:
                         return decimalToHexadecimal(binaryToDecimal(arr));
                     default:
-                        throw new Error("Invalid to converter type");
+                        break;
                 }
             case 8:
                 switch (toBase) {
@@ -135,7 +135,7 @@ export const BinaryConverter = {
                     case 16:
                         return decimalToHexadecimal(octalToDecimal(arr));
                     default:
-                        throw new Error("Invalid to converter type");
+                        break;
                 }
             case 10:
                 switch (toBase) {
@@ -146,7 +146,7 @@ export const BinaryConverter = {
                     case 16:
                         return decimalToHexadecimal(arr);
                     default:
-                        throw new Error("Invalid to converter type");
+                        break;
                 }
             case 16:
                 switch (toBase) {
@@ -165,10 +165,10 @@ export const BinaryConverter = {
                     case 10:
                         return hexadecimalToDecimal(arr);
                     default:
-                        throw new Error("Invalid to converter type");
+                        break;
                 }
             default:
-                throw new Error("Invalid from converter type");
+                throw new Error("Invalid converter type");
         }
 
     }
