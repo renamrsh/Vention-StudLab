@@ -21,14 +21,15 @@
 .side-menu__list li a {
   text-decoration: none;
   color: inherit;
+  outline: none;
+}
+.side-menu__list li a.selected {
+  color: #6bbd5e;
+  text-shadow: 0px 0px 3.3px #2bff00;
 }
 .side-menu__list li a:hover {
   color: #BD5E5E;
   text-shadow: 0px 0px 3.3px #FF0000;
-}
-.side-menu__list li a:focus {
-  color: #6bbd5e;
-  text-shadow: 0px 0px 3.3px #2bff00;
 }
 
 .top-menu {
@@ -96,12 +97,13 @@
 }
 .gallery__grid {
   overflow-y: auto;
-  height: 430px;
+  height: calc(100vh - 200px);
   justify-content: center;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: repeat(auto-fill, 160px);
+  grid-template-rows: repeat(auto-fill, 200px);
   gap: 30px 5%;
   scrollbar-width: none;
 }
@@ -148,4 +150,8 @@
   color: #BD5E5E;
   text-shadow: 0px 0px 3.3px #FF0000;
   box-shadow: 0px -5px 15px rgba(255, 0, 0, 0.55);
+}
+
+.is-hidden {
+  display: none;
 }/*# sourceMappingURL=components.css.map */

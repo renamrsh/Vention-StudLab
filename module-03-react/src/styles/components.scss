@@ -24,20 +24,23 @@ $yellow: #ffb22c;
       a {
         text-decoration: none;
         color: inherit;
+        outline: none;
+        
+        &.selected {
+          color: #6bbd5e;
+          text-shadow: 0px 0px 3.3px #2bff00;
+        }
 
         &:hover {
           color: #BD5E5E;
           text-shadow: 0px 0px 3.3px #FF0000;
         }
 
-        &:focus {
-          color: #6bbd5e;
-          text-shadow: 0px 0px 3.3px #2bff00;
-        }
       }
     }
   }
 }
+
 
 .top-menu {
   background-color: black;
@@ -104,12 +107,13 @@ $yellow: #ffb22c;
 
   &__grid {
     overflow-y: auto;
-    height: 430px;
+    height: calc(100vh - 200px);
     justify-content: center;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: repeat(auto-fill, 160px);
+    grid-template-rows: repeat(auto-fill, 200px);
     gap: 30px 5%;
     scrollbar-width: none;
   }
@@ -140,20 +144,27 @@ $yellow: #ffb22c;
   }
 }
 
-.bottom__btn {
-  user-select: none;
-  height: 40px;
-  width: 120px;
-  border: none;
-  background-color: black;
-  color: white;
-  font-family: Starjedi;
-  border-radius: 5px 5px 0px 0px;
-  box-shadow: 0px -5px 15px rgba(255, 255, 255, 0.55);
+.bottom {
 
-  &:hover {
-    color: #BD5E5E;
-    text-shadow: 0px 0px 3.3px #FF0000;
-    box-shadow: 0px -5px 15px rgba(255, 0, 0, 0.55);
+
+  &__btn {
+    user-select: none;
+    height: 40px;
+    width: 120px;
+    border: none;
+    background-color: black;
+    color: white;
+    font-family: Starjedi;
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 0px -5px 15px rgba(255, 255, 255, 0.55);
+
+    &:hover {
+      color: #BD5E5E;
+      text-shadow: 0px 0px 3.3px #FF0000;
+      box-shadow: 0px -5px 15px rgba(255, 0, 0, 0.55);
+    }
   }
+}
+.is-hidden{
+  display: none;
 }
