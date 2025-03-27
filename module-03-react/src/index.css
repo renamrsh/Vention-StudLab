@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Starjedi';
+  src: local('Starjedi'), url(../public/fonts/Starjedi.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Starjhol';
+  src: local('Starjhol'), url(/public/fonts/Starjhol.ttf) format('truetype');
+}
+:root {
+  font-family: Starjedi;
+  background-color: black;
+  scrollbar-width: none;
+  background-image: url("../src/assets/stars.png");
+}
+*{
+  margin: 0px;
+  padding: 0px;
+}
+img{
+  user-select: none;
+}
+
+ul{
+  list-style-type: none;
+
+}
