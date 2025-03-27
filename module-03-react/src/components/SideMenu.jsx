@@ -41,7 +41,7 @@ export default function SideMenu({ setOpenModal, onMenuClick }) {
   });
 
   return (
-    <section onClick={() => setOpenModal(false)}mclassName="side-menu">
+    <section onClick={() => setOpenModal(false)} className="side-menu">
       <img className="side-menu__logo" src="../src/assets/logo.svg" alt="logo" width={235} height={135} />
       <ul className="side-menu__list">
         {listItems}

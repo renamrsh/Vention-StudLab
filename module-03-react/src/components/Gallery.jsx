@@ -1,92 +1,119 @@
-import React, { useEffect, useState, useImperativeHandle, forwardRef } from "react";
+import React, {
+    useEffect,
+    useState,
+    useImperativeHandle,
+    forwardRef,
+} from "react";
 import axios from "axios";
 import "/src/styles/components.css";
 import Card from "./Card.jsx";
 
 const baseURL = "https://swapi.dev/api/";
 
-export const Gallery = forwardRef(({ search, setSearch, url, setOpenModal, setChoosedCard }, ref) => {
-    const [cards, setCards] = useState([]);
-    const [allResults, setAllResults] = useState([]);
-    const [page, setPage] = useState(1);
-    const bottomButton = document.querySelector(".bottom__btn");
-    let counter = 0;
+const Gallery = forwardRef(
+    ({ setImg, search, setSearch, url, setOpenModal, setChoosedCard }, ref) => {
+        const [cards, setCards] = useState([]);
+        const [allResults, setAllResults] = useState([]);
+        const [page, setPage] = useState(1);
 
-    useEffect(() => {
+        const [loading, setLoading] = useState(false);
+        const [error, setError] = useState(null);
+
         const bottomButton = document.querySelector(".bottom__btn");
+        let cardCounter = 0;
 
-        const getAPI = async () => {
-            if (bottomButton) {
-                bottomButton.classList.remove("is-hidden");
-            }
-            let allResults = [];
-            let nextPage = baseURL + url;
-            while (nextPage) {
+        useEffect(() => {
+            const bottomButton = document.querySelector(".bottom__btn");
+
+            const getAPI = async () => {
+                setLoading(true);
+                setError(null);
+
+                let allResults = [];
+                let nextPage = baseURL + url;
                 try {
-                    const response = await axios.get(nextPage);
-                    const { results, next } = response.data;
-                    allResults = [...allResults, ...results];
-                    nextPage = next;
+                    while (nextPage) {
+                        try {
+                            const response = await axios.get(nextPage);
+                            const { results, next } = response.data;
+                            allResults = [...allResults, ...results];
+                            nextPage = next;
+                        } catch (error) {
+                            nextPage = null;
+                        }
+                    }
+                    setAllResults(allResults);
+                    setCards(allResults.slice(0, 15));
+                    if (allResults.length <= 15 && bottomButton) {
+                        bottomButton.classList.add("is-hidden");
+                    } else {
+                        bottomButton.classList.remove("is-hidden");
+                    }
+                    setSearch("");
                 } catch (error) {
-                    nextPage = null;
+                    setError("Error: can't get data.");
+                } finally {
+                    setLoading(false);
                 }
-            }
-            setAllResults(allResults);
-            setCards(allResults.slice(0, 15));
-            if (allResults.length <= 15 && bottomButton) {
-                bottomButton.classList.add("is-hidden");
-            }
-            setSearch('');
-        };
-        getAPI();
-        setPage(1);
+            };
+            getAPI();
+            setPage(1);
+        }, [url]);
 
-    }, [url]);
-
-    useImperativeHandle(ref, () => ({
-        loadMore() {
-            counter = page + 1;
-            setCards(allResults.slice(0, counter * 15));
-            setPage(counter);
-            if (counter * 15 >= allResults.length) {
-                bottomButton.classList.add("is-hidden");
-            } else {
-                bottomButton.classList.remove("is-hidden");
-            }
-        }
-    }));
-
-    return (
-        <section className="gallery">
-            <div className="gallery__grid">
-                {cards.filter(card => {
-                    return url !== "films/"
-                        ? (card.name
-                            ? search.toLowerCase() === '' ? card : card.name.toLowerCase().includes(search.toLowerCase())
-                            : false)
-                        : (card.title
-                            ? search.toLowerCase() === '' ? card : card.title.toLowerCase().includes(search.toLowerCase())
-                            : false);
-                }).map((card, index) => (
-                    <Card key={index}
-                        imgPromise={url !== "films/"
-                            ? card.name ? getMainImage(card.name) : "Unknown"
-                            : card.title ? getMainImage(card.title) : "Unknown"
-                        }
-                        name={url !== "films/"
-                            ? card.name ? card.name.toLowerCase() : "Unknown"
-                            : card.title ? card.title.toLowerCase() : "Unknown"
-                        }
-                        onClick={() => { setOpenModal(true); setChoosedCard(card) }}
-                    />
-                ))}
-            </div>
-        </section>
-    );
-});
+        useImperativeHandle(ref, () => ({
+            loadMore() {
+                cardCounter = page + 1;
+                setCards(allResults.slice(0, cardCounter * 15));
+                setPage(cardCounter);
+                if (cardCounter * 15 >= allResults.length) {
+                    bottomButton.classList.add("is-hidden");
+                } else {
+                    bottomButton.classList.remove("is-hidden");
+                }
+            },
+        }));
+        return (
+            <section className="gallery">
+                <div className="gallery__grid">
+                    {loading && <div className="loading">Loading...</div>}
+                    {!loading && !error &&
+                        allResults
+                            .filter((card) => {
+                                const searchField = url !== "films/" ? card.name : card.title;
+                                return searchField
+                                    ? search.toLowerCase() === "" ||
+                                    searchField.toLowerCase().includes(search.toLowerCase())
+                                    : false;
+                            })
+                            .slice(0, page * 15)
+                            .map((card, index) => {
+                                const isFilm = url === "films/";
+                                const cardName = isFilm ? card.title : card.name;
+                                const img = cardName ? getMainImage(cardName) : "Unknown";
+                                return (
+                                    <Card
+                                        key={index}
+                                        more={url == "people/"}
+                                        imgPromise={img}
+                                        name={cardName ? cardName.toLowerCase() : "Unknown"}
+                                        onClick={() => {
+                                            setOpenModal(true);
+                                            setChoosedCard(card);
+                                            setImg(img);
+                                        }}
+                                    />
+                                );
+                            })}
+                </div>
+            </section>
+        );
+    }
+);
 
 async function getMainImage(title) {
-    const url = `https://pl.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=pageimages|images&pithumbsize=1000&titles=${encodeURIComponent(title)}`;
+    const url = `https://pl.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=pageimages|images&pithumbsize=1000&titles=${encodeURIComponent(
+        title
+    )}`;
 
     try {
         const response = await axios.get(url);
@@ -101,10 +128,12 @@ async function getMainImage(title) {
             return pages[pageId].thumbnail.source;
         } else if (pages[pageId].images) {
             const images = pages[pageId].images;
-            const firstImage = images.find(img => img.title.includes("File:"));
+            const firstImage = images.find((img) => img.title.includes("File:"));
 
             if (firstImage) {
-                const imageTitle = firstImage.title.replace("File:", "").replace(/ /g, "_");
+                const imageTitle = firstImage.title
+                    .replace("File:", "")
+                    .replace(/ /g, "_");
                 return `https://upload.wikimedia.org/wikipedia/commons/thumb/${imageTitle}/500px-${imageTitle}`;
             }
         }
@@ -113,3 +142,5 @@ async function getMainImage(title) {
         return null;
     }
 }
+
+export default Gallery;

@@ -13,7 +13,8 @@ function App() {
   const [search, setSearch] = useState('');
   const [openModal, setOpenModal] = useState(false);
   const [choosedCard, setChoosedCard] = useState();
-  
+  const [img, setImg] = useState([]);
+
 
   const loadMore = () => {
     if (galleryRef.current) {
@@ -24,19 +25,19 @@ function App() {
   const handleMenuClick = (newUrl) => {
     setUrl(newUrl);
   };
-  
+
   return (
     <>
-      <div className="left">
-        <SideMenu setOpenModal={setOpenModal} onMenuClick={handleMenuClick}/>
+      <div className="root__left">
+        <SideMenu setOpenModal={setOpenModal} onMenuClick={handleMenuClick} />
       </div>
-      <Modal openModal={openModal} setOpenModal={setOpenModal} choosedCard={choosedCard}/>
-      <div className="right" >
-        <TopMenu search={search} setSearch={setSearch}/>
-        <Gallery setChoosedCard={setChoosedCard} openModal={openModal} setOpenModal={setOpenModal} search={search} setSearch={setSearch} ref={galleryRef} url={url} />
+      <Modal img={img} openModal={openModal} setOpenModal={setOpenModal} choosedCard={choosedCard} />
+      <div className="root__right" >
+        <TopMenu search={search} setSearch={setSearch} />
+        <Gallery setImg={setImg} setChoosedCard={setChoosedCard} openModal={openModal} setOpenModal={setOpenModal} search={search} setSearch={setSearch} ref={galleryRef} url={url} />
         <BottomBtn loadMore={loadMore} />
       </div>
-      <img className="r2d2" src="../src/assets/r2d2.png" alt="r2d2" width='200' height='250' />
+      <img className="root__r2d2" src="../src/assets/r2d2.png" alt="r2d2" width='200' height='250' />
     </>
   );
 }

@@ -1,4 +1,14 @@
 $yellow: #ffb22c;
+$white: #ffffff;
+$whiteShadow: rgba(255, 255, 255, 0.55);
+$black: #000000;
+$blackShadow: rgba(0, 0, 0, 0.7);
+$green: #2bff00;
+$green-light: #6bbd5e;
+$red: #FF0000;
+$redShadow: rgba(255, 0, 0, 0.55);
+$red-light: #BD5E5E;
+
 
 .side-menu {
   display: flex;
@@ -12,7 +22,7 @@ $yellow: #ffb22c;
   }
 
   &__list {
-    color: white;
+    color: $white;
     text-align: left;
 
     li {
@@ -26,13 +36,13 @@ $yellow: #ffb22c;
         outline: none;
 
         &.selected {
-          color: #6bbd5e;
-          text-shadow: 0px 0px 3.3px #2bff00;
+          color: $green-light;
+          text-shadow: 0px 0px 3.3px $green;
         }
 
         &:hover {
-          color: #bd5e5e;
-          text-shadow: 0px 0px 3.3px #FF0000;
+          color: $red-light;
+          text-shadow: 0px 0px 3.3px $red;
         }
 
       }
@@ -40,17 +50,16 @@ $yellow: #ffb22c;
   }
 }
 
-
 .top-menu {
-  background-color: black;
+  background-color: $black;
   margin: 0px 45px;
   padding: 20px 40px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.55);
+  box-shadow: 0px 5px 15px $whiteShadow;
   border-radius: 0px 0px 5px 5px;
-  color: white;
+  color: $white;
 
   &__input {
     max-width: 250px;
@@ -60,29 +69,29 @@ $yellow: #ffb22c;
     padding-left: 2px;
     border: none;
     outline: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
+    border-bottom: 1px solid $whiteShadow;
+    color: $white;
     background: transparent;
 
     &:hover {
-      border-bottom: 1px solid #BD5E5E;
-      color: #BD5E5E;
-      text-shadow: 0px 0px 3.3px #FF0000;
+      border-bottom: 1px solid $red-light;
+      color: $red-light;
+      text-shadow: 0px 0px 3.3px $red;
 
       &::placeholder {
-        color: #BD5E5E;
-        text-shadow: 0px 0px 3.3px #FF0000;
+        color: $red-light;
+        text-shadow: 0px 0px 3.3px $red;
       }
     }
 
     &:focus {
-      border-bottom: 1px solid #6bbd5e;
-      color: #6bbd5e;
-      text-shadow: 0px 0px 3.3px #2bff00;
+      border-bottom: 1px solid $green-light;
+      color: $green-light;
+      text-shadow: 0px 0px 3.3px $green;
 
       &::placeholder {
-        color: #6bbd5e;
-        text-shadow: 0px 0px 3.3px #2bff00;
+        color: $green-light;
+        text-shadow: 0px 0px 3.3px $green;
       }
     }
   }
@@ -143,23 +152,21 @@ $yellow: #ffb22c;
 }
 
 .bottom {
-
-
   &__btn {
     user-select: none;
     height: 40px;
     width: 120px;
     border: none;
-    background-color: black;
-    color: white;
+    background-color: $black;
+    color: $white;
     font-family: Starjedi;
     border-radius: 5px 5px 0px 0px;
-    box-shadow: 0px -5px 15px rgba(255, 255, 255, 0.55);
+    box-shadow: 0px -5px 15px $whiteShadow;
 
     &:hover {
-      color: #BD5E5E;
-      text-shadow: 0px 0px 3.3px #FF0000;
-      box-shadow: 0px -5px 15px rgba(255, 0, 0, 0.55);
+      color: $red-light;
+      text-shadow: 0px 0px 3.3px $red;
+      box-shadow: 0px -5px 15px $redShadow;
     }
   }
 }
@@ -170,26 +177,33 @@ $yellow: #ffb22c;
   left: 57.5%;
   transform: translate(-50%, -50%);
   color: $yellow;
-  background-color: black;
+  background-color: $black;
   padding: 50px;
   z-index: 1000;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: row;
-  box-shadow: 0px 0px 50px #FFB22C;
+  box-shadow: 0px 0px 50px $yellow;
   border-radius: 5px;
-  gap: 5%;
+  gap: 10%;
+
+  &__film-list {
+    padding-left: 20px;
+  }
 }
 
 .overlay {
   position: fixed;
-  top: 0;
-  left: 15%;
-  bottom: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, .7);
+  inset:0;
+  background-color: $blackShadow;
   z-index: 1000;
 }
 
 .is-hidden {
   display: none;
+}
+
+.loading{
+  color: $white;
 }
