@@ -4,10 +4,16 @@ import Gallery from "./components/Gallery";
 import SideMenu from "./components/SideMenu";
 import TopMenu from "./components/TopMenu";
 import BottomBtn from "./components/BottomBtn";
+import Modal from "./components/Modal";
+
 
 function App() {
   const galleryRef = useRef();
   const [url, setUrl] = useState("people/");
+  const [search, setSearch] = useState('');
+  const [openModal, setOpenModal] = useState(false);
+  const [choosedCard, setChoosedCard] = useState();
+  
 
   const loadMore = () => {
     if (galleryRef.current) {
@@ -22,14 +28,15 @@ function App() {
   return (
     <>
       <div className="left">
-        <SideMenu onMenuClick={handleMenuClick}/>
+        <SideMenu setOpenModal={setOpenModal} onMenuClick={handleMenuClick}/>
       </div>
-      <div className="right">
-        <TopMenu />
-        <Gallery ref={galleryRef} url={url} />
+      <Modal openModal={openModal} setOpenModal={setOpenModal} choosedCard={choosedCard}/>
+      <div className="right" >
+        <TopMenu search={search} setSearch={setSearch}/>
+        <Gallery setChoosedCard={setChoosedCard} openModal={openModal} setOpenModal={setOpenModal} search={search} setSearch={setSearch} ref={galleryRef} url={url} />
         <BottomBtn loadMore={loadMore} />
       </div>
-      <img className="r2d2" src="../src/assets/r2d2menu.png" alt="r2d2" width='200' height='250' />
+      <img className="r2d2" src="../src/assets/r2d2.png" alt="r2d2" width='200' height='250' />
     </>
   );
 }

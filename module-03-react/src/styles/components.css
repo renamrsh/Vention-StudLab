@@ -10,7 +10,6 @@
 }
 .side-menu__list {
   color: white;
-  list-style-type: none;
   text-align: left;
 }
 .side-menu__list li {
@@ -28,7 +27,7 @@
   text-shadow: 0px 0px 3.3px #2bff00;
 }
 .side-menu__list li a:hover {
-  color: #BD5E5E;
+  color: #bd5e5e;
   text-shadow: 0px 0px 3.3px #FF0000;
 }
 
@@ -43,7 +42,7 @@
   border-radius: 0px 0px 5px 5px;
   color: white;
 }
-.top-menu input {
+.top-menu__input {
   max-width: 250px;
   font-family: inherit;
   letter-spacing: 0.2rem;
@@ -55,40 +54,40 @@
   color: white;
   background: transparent;
 }
-.top-menu input:hover {
+.top-menu__input:hover {
   border-bottom: 1px solid #BD5E5E;
   color: #BD5E5E;
   text-shadow: 0px 0px 3.3px #FF0000;
 }
-.top-menu input:hover::-moz-placeholder {
+.top-menu__input:hover::-moz-placeholder {
   color: #BD5E5E;
   text-shadow: 0px 0px 3.3px #FF0000;
 }
-.top-menu input:hover::placeholder {
+.top-menu__input:hover::placeholder {
   color: #BD5E5E;
   text-shadow: 0px 0px 3.3px #FF0000;
 }
-.top-menu input:focus {
+.top-menu__input:focus {
   border-bottom: 1px solid #6bbd5e;
   color: #6bbd5e;
   text-shadow: 0px 0px 3.3px #2bff00;
 }
-.top-menu input:focus::-moz-placeholder {
+.top-menu__input:focus::-moz-placeholder {
   color: #6bbd5e;
   text-shadow: 0px 0px 3.3px #2bff00;
 }
-.top-menu input:focus::placeholder {
+.top-menu__input:focus::placeholder {
   color: #6bbd5e;
   text-shadow: 0px 0px 3.3px #2bff00;
 }
-.top-menu a {
+.top-menu__filter {
   height: 30px;
 }
-.top-menu a:hover {
-  content: url("../assets/settingsRed.svg");
+.top-menu__filter:hover {
+  content: url("../assets/filterRed.svg");
 }
-.top-menu a:focus {
-  content: url("../assets/settingsGreen.svg");
+.top-menu__filter:focus {
+  content: url("../assets/filterGreen.svg");
 }
 
 .gallery {
@@ -112,7 +111,6 @@
   width: 160px;
   height: 200px;
   justify-self: center;
-  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -150,6 +148,32 @@
   color: #BD5E5E;
   text-shadow: 0px 0px 3.3px #FF0000;
   box-shadow: 0px -5px 15px rgba(255, 0, 0, 0.55);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 57.5%;
+  transform: translate(-50%, -50%);
+  color: #ffb22c;
+  background-color: black;
+  padding: 50px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0px 0px 50px #FFB22C;
+  border-radius: 5px;
+  gap: 5%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 15%;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
 }
 
 .is-hidden {

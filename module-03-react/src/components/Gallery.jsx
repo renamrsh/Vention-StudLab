@@ -2,15 +2,13 @@ import React, { useEffect, useState, useImperativeHandle, forwardRef } from "rea
 import axios from "axios";
 import "/src/styles/components.css";
 import Card from "./Card.jsx";
-import Modal from "./Modal.jsx";
 
 const baseURL = "https://swapi.dev/api/";
 
-const Gallery = forwardRef(({ url }, ref) => {
+export const Gallery = forwardRef(({ search, setSearch, url, setOpenModal, setChoosedCard }, ref) => {
     const [cards, setCards] = useState([]);
     const [allResults, setAllResults] = useState([]);
     const [page, setPage] = useState(1);
-    const [isOpen, setIsOpen] = useState(false);
     const bottomButton = document.querySelector(".bottom__btn");
     let counter = 0;
 
@@ -30,7 +28,6 @@ const Gallery = forwardRef(({ url }, ref) => {
                     allResults = [...allResults, ...results];
                     nextPage = next;
                 } catch (error) {
-                    console.error(`Error: ${error}`);
                     nextPage = null;
                 }
             }
@@ -39,46 +36,80 @@ const Gallery = forwardRef(({ url }, ref) => {
             if (allResults.length <= 15 && bottomButton) {
                 bottomButton.classList.add("is-hidden");
             }
+            setSearch('');
         };
         getAPI();
         setPage(1);
+
     }, [url]);
 
     useImperativeHandle(ref, () => ({
         loadMore() {
-            console.log(page)
             counter = page + 1;
             setCards(allResults.slice(0, counter * 15));
             setPage(counter);
-            console.log(counter + " *15 >"+ allResults.length)
-            if(counter*15>allResults.length){
+            if (counter * 15 >= allResults.length) {
                 bottomButton.classList.add("is-hidden");
             } else {
                 bottomButton.classList.remove("is-hidden");
             }
         }
     }));
-    
-    const openModalWindow = (card) => {
-        console.log("Card clicked:", card);
-     
-    };
-
 
     return (
         <section className="gallery">
             <div className="gallery__grid">
-                {cards.map((card, index) => (
-                    <Card key={index} name={url!=="films/" 
-                        ? card.name ? card.name.toLowerCase() : "Unknown"
-                        : card.title ? card.title.toLowerCase() : "Unknown"
-                    } 
-                    onClick={() => setIsOpen(true)}
+                {cards.filter(card => {
+                    return url !== "films/"
+                        ? (card.name
+                            ? search.toLowerCase() === '' ? card : card.name.toLowerCase().includes(search.toLowerCase())
+                            : false)
+                        : (card.title
+                            ? search.toLowerCase() === '' ? card : card.title.toLowerCase().includes(search.toLowerCase())
+                            : false);
+                }).map((card, index) => (
+                    <Card key={index}
+                        imgPromise={url !== "films/"
+                            ? card.name ? getMainImage(card.name) : "Unknown"
+                            : card.title ? getMainImage(card.title) : "Unknown"
+                        }
+                        name={url !== "films/"
+                            ? card.name ? card.name.toLowerCase() : "Unknown"
+                            : card.title ? card.title.toLowerCase() : "Unknown"
+                        }
+                        onClick={() => { setOpenModal(true); setChoosedCard(card) }}
                     />
                 ))}
-                <Modal open={isOpen}/>
             </div>
         </section>
     );
 });
-export default Gallery;
+
+async function getMainImage(title) {
+    const url = `https://pl.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=pageimages|images&pithumbsize=1000&titles=${encodeURIComponent(title)}`;
+
+    try {
+        const response = await axios.get(url);
+        const pages = response.data.query.pages;
+        const pageId = Object.keys(pages)[0];
+
+        if (pageId === "-1") {
+            return null;
+        }
+
+        if (pages[pageId].thumbnail) {
+            return pages[pageId].thumbnail.source;
+        } else if (pages[pageId].images) {
+            const images = pages[pageId].images;
+            const firstImage = images.find(img => img.title.includes("File:"));
+
+            if (firstImage) {
+                const imageTitle = firstImage.title.replace("File:", "").replace(/ /g, "_");
+                return `https://upload.wikimedia.org/wikipedia/commons/thumb/${imageTitle}/500px-${imageTitle}`;
+            }
+        }
+        return null;
+    } catch (error) {
+        return null;
+    }
+}

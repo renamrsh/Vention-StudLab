@@ -13,7 +13,6 @@ $yellow: #ffb22c;
 
   &__list {
     color: white;
-    list-style-type: none;
     text-align: left;
 
     li {
@@ -25,14 +24,14 @@ $yellow: #ffb22c;
         text-decoration: none;
         color: inherit;
         outline: none;
-        
+
         &.selected {
           color: #6bbd5e;
           text-shadow: 0px 0px 3.3px #2bff00;
         }
 
         &:hover {
-          color: #BD5E5E;
+          color: #bd5e5e;
           text-shadow: 0px 0px 3.3px #FF0000;
         }
 
@@ -53,10 +52,10 @@ $yellow: #ffb22c;
   border-radius: 0px 0px 5px 5px;
   color: white;
 
-  input {
+  &__input {
     max-width: 250px;
     font-family: inherit;
-    letter-spacing: 0.20rem;
+    letter-spacing: 0.2rem;
     padding-bottom: 2px;
     padding-left: 2px;
     border: none;
@@ -88,13 +87,13 @@ $yellow: #ffb22c;
     }
   }
 
-  a {
+  &__filter {
     &:hover {
-      content: url("../assets/settingsRed.svg");
+      content: url("../assets/filterRed.svg");
     }
 
     &:focus {
-      content: url("../assets/settingsGreen.svg");
+      content: url("../assets/filterGreen.svg");
     }
 
     height: 30px;
@@ -123,7 +122,6 @@ $yellow: #ffb22c;
   width: 160px;
   height: 200px;
   justify-self: center;
-  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -165,6 +163,33 @@ $yellow: #ffb22c;
     }
   }
 }
-.is-hidden{
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 57.5%;
+  transform: translate(-50%, -50%);
+  color: $yellow;
+  background-color: black;
+  padding: 50px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0px 0px 50px #FFB22C;
+  border-radius: 5px;
+  gap: 5%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 15%;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .7);
+  z-index: 1000;
+}
+
+.is-hidden {
   display: none;
 }

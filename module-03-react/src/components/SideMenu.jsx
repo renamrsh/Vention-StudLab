@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "/src/styles/components.css";
 
-export default function SideMenu({ onMenuClick }) {
+export default function SideMenu({ setOpenModal, onMenuClick }) {
   const menuItems = [
     'People',
     'Species',
@@ -41,7 +41,7 @@ export default function SideMenu({ onMenuClick }) {
   });
 
   return (
-    <section className="side-menu">
+    <section onClick={() => setOpenModal(false)}mclassName="side-menu">
       <img className="side-menu__logo" src="../src/assets/logo.svg" alt="logo" width={235} height={135} />
       <ul className="side-menu__list">
         {listItems}

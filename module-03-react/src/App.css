@@ -10,6 +10,7 @@
 .right{
   width: 85%;
   text-align: center;
+  position: relative;
 }
 .r2d2{
   position: fixed;
